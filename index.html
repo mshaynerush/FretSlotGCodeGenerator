@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="frets.js" defer></script>
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fret Slot G Code Generator for CNC</h1>
+    <div class="container">
+        <div class="form-body">
+            <form name="gCode-Form" class="g-code-form">
+                <div><p>Unit</p>
+                    <label for="inch">Inch</label>
+                    <input type="radio" name="unit" id="inch" value="in" />
+                    <label for="mm">Millimeters</label>
+                    <input type="radio" id="mm" name="unit" value="mm" />
+                    </input>
+                </div>
+                <label for="scale">Scale</label>
+                <input name="scale" id="scale" type="text"/>
+                <label for="numFrets">Number of frets</label>
+                <input name="num_frets" id="numFrets" type="text" />
+                <label for="slotDepth">Depth of slot (Z Axis)</label>
+                <input name="slot_depth" id="slotDepth" />
+                <label for="stepDown">Maximum step down</label>
+                <input name="step_down" id="stepDown" type = number/>
+                <label for="last_fret_width">Fretboard width at last fret</label>
+                <input name="lastFretWidth" id="lastFretWidth" />
+
+                <label for="nutWidth">Fretboard width at Nut</label>
+                <input name="nut_width" id="nutWidth" />
+                <input type="button" value="Create G Code" onclick="fretsTest()" />
+            </form>
+        </div>
+        <div class="g-code-window" id="gCodeWin">
+        </div>
+    </div>
+</body>
+</html>
