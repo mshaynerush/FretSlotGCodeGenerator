@@ -11,6 +11,7 @@ function fretsTest() {
     divConstant = 17.817
     numFrets = document.getElementById("numFrets").value
     cutSpeed = document.getElementById("cutSpeed").value
+    bitDiameter = document.getElementById("bitDiameter")
     firstFret = scale / divConstant
     firstFret = Number(firstFret.toFixed(3))
     yDistances = []
@@ -38,7 +39,7 @@ function fretsTest() {
         if(document.querySelector('input[name="unit"]:checked').id === "inch"){
             fretWidthReduction = inchConversion(2)
         } else {
-            fretWidthReduction = 1.7
+            fretWidthReduction = bitDiameter * 2 + .5
         }
         currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 - fretWidthReduction
 
@@ -53,7 +54,7 @@ function fretsTest() {
 
 function inchConversion(x){
 
-    return x / 25.4 - (.3 / 25.4)
+    return x / 25.4 - (.25 / 25.4)
 
 }
 
