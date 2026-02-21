@@ -10,6 +10,7 @@ function fretsTest() {
     scale = document.getElementById("scale").value
     divConstant = 17.817
     numFrets = document.getElementById("numFrets").value
+    cutSpeed = document.getElementById("cutSpeed").value
     firstFret = scale / divConstant
     firstFret = Number(firstFret.toFixed(3))
     yDistances = []
@@ -89,7 +90,7 @@ function createGCode(yDistances, fretBoardWidths){
         x2 = fretBoardWidths[index] / 2
         gCodeWindow.innerHTML += "G0 X" + x1 + " Y" + fret +  " F5000 <br>"
         while (zDepth > zEnd){
-            gCodeWindow.innerHTML += "G1 X" + x2 + " Y" + fret + " Z" + zDepth.toFixed(3) + " F900 <br>"
+            gCodeWindow.innerHTML += "G1 X" + x2 + " Y" + fret + " Z" + zDepth.toFixed(3) + " F" + cutSpeed + " <br>"
             if(zDepth + stepDown < zEnd){
                 zDepth = zEnd
             } else {
