@@ -94,7 +94,7 @@ function createGCode(yDistances, fretBoardWidths){
         stepDown = -(document.getElementById("stepDown").value)
 
         if(document.querySelector('#inch').checked = true) {
-            stepdown = stepDown * 25.4
+            stepDown = stepDown * 25.4
         }
 
         zDepth = stepDown
