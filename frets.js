@@ -20,13 +20,14 @@ function fretsTest() {
    
     for(i = 1; i < numFrets; i++){
         nextFret = ((scale - yDistances[i - 1]) / divConstant + yDistances[i - 1])
-        nextFret = Number(nextFret.toFixed(3))
+        
 
         // If user is using inches, change inch values to mm
-        if(document.querySelector("input[name='unit']:checked").value = "in"){
+        if(document.querySelector("#inch").checked = true){
             nextFret = nextFret * 25.4
         }
 
+        nextFret = Number(nextFret.toFixed(3))
         yDistances.push(Number(nextFret.toFixed(3)))
     }
     
@@ -46,7 +47,7 @@ function fretsTest() {
         currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 - fretWidthReduction
 
         // if user is using inches change fret width to mm
-        if(document.querySelector("input[name='unit']:checked").value = "in"){
+        if(document.querySelector('#inch').checked = true){
             currentFretWidth = currentFretWidth * 25.4
         }
         
@@ -69,7 +70,7 @@ function createGCode(yDistances, fretBoardWidths){
     gCodeWindow = document.getElementById("gCodeWin")
 
     // set unit code for CNC Movement
-    if(document.querySelector('input[name="unit"]:checked').id === "inch"){
+    if(document.querySelector('#inch') = true){
         unitCode = "G20"
         safeTravel = 3.000 / 25.400
     } else {
