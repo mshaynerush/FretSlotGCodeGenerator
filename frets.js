@@ -22,6 +22,11 @@ function fretsTest() {
         nextFret = ((scale - yDistances[i - 1]) / divConstant + yDistances[i - 1])
         nextFret = Number(nextFret.toFixed(3))
 
+        // If user is using inches, change inch values to mm
+        if(document.querySelector("input[name='unit']:checked").value = "in"){
+            nextFret = nextFret * 25.4
+        }
+
         yDistances.push(Number(nextFret.toFixed(3)))
     }
     
@@ -36,12 +41,15 @@ function fretsTest() {
         totalLength = yDistances[numFrets - 1]
         // to simplify the linear equation each part of the equation is figured separately then added together
 
-        if(document.querySelector('input[name="unit"]:checked').id === "inch"){
-            fretWidthReduction = inchConversion(2)
-        } else {
-            fretWidthReduction = bitDiameter * 2 + .5
-        }
+      
+        fretWidthReduction = bitDiameter * 2.5        
         currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 - fretWidthReduction
+
+        // if user is using inches change fret width to mm
+        if(document.querySelector("input[name='unit']:checked").value = "in"){
+            nextFret = nextFret * 25.4
+        }
+        
 
         fretboardWidths.push(Number(currentFretWidth.toFixed(3)))
     })
@@ -52,16 +60,11 @@ function fretsTest() {
 }
 
 
-function inchConversion(x){
-
-    return x / 25.4 - (.25 / 25.4)
-
-}
-
 
 function createGCode(yDistances, fretBoardWidths){
 
-    
+
+
     // get window to retun G Code to
     gCodeWindow = document.getElementById("gCodeWin")
 
@@ -83,6 +86,9 @@ function createGCode(yDistances, fretBoardWidths){
     //gCodeWindow.innerHTML += "G0 X" + -(fretboardWidths[0] / 2) + " Y" + yDistances[0] + "<br>"
 
     yDistances.map((fret, index) => {
+
+
+
         stepDown = -(document.getElementById("stepDown").value)
         zDepth = stepDown
         console.log(zDepth)
