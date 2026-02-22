@@ -47,7 +47,7 @@ function fretsTest() {
 
         // if user is using inches change fret width to mm
         if(document.querySelector("input[name='unit']:checked").value = "in"){
-            nextFret = nextFret * 25.4
+            currentFretWidth = currentFretWidth * 25.4
         }
         
 
