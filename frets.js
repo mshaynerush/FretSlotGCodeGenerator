@@ -23,7 +23,7 @@ function fretsTest() {
         // If user is using inches, change inch values to mm
 
 
-        yDistances.push(nextFret)
+        yDistances.push(nextFret.toFixed(3))
     }
     
     // get widths of the fretboard at each ydistance
@@ -45,7 +45,7 @@ function fretsTest() {
 
         
 
-        fretboardWidths.push(currentFretWidth)
+        fretboardWidths.push(currentFretWidth.toFixed(3))
     })
  
 
