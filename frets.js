@@ -10,6 +10,7 @@ function fretsTest() {
     scale = document.getElementById("scale").value
     divConstant = 17.817
     numFrets = document.getElementById("numFrets").value
+    bitDiameter = document.getElementById("bitDiameter").value
     firstFret = scale / divConstant
     firstFret = Number(firstFret.toFixed(3))
     yDistances = []
@@ -59,7 +60,9 @@ function inchConversion(x){
 
 function createGCode(yDistances, fretBoardWidths){
 
-    
+    // get the cutting speed 
+    cutSpeed = document.getElementById("cutSpeed").value
+    cutSpeed = Number(cutSpeed).toFixed(0)
     // get window to retun G Code to
     gCodeWindow = document.getElementById("gCodeWin")
 
@@ -83,13 +86,12 @@ function createGCode(yDistances, fretBoardWidths){
     yDistances.map((fret, index) => {
         stepDown = -(document.getElementById("stepDown").value)
         zDepth = stepDown
-        console.log(zDepth)
         zEnd = -(document.getElementById("slotDepth").value)
         x1 = -(fretboardWidths[index] / 2)
         x2 = fretBoardWidths[index] / 2
         gCodeWindow.innerHTML += "G0 X" + x1 + " Y" + fret +  " F5000 <br>"
         while (zDepth > zEnd){
-            gCodeWindow.innerHTML += "G1 X" + x2 + " Y" + fret + " Z" + zDepth.toFixed(3) + " F900 <br>"
+            gCodeWindow.innerHTML += "G1 X" + x2 + " Y" + fret + " Z" + zDepth.toFixed(3) + "F" + cutSpeed + "<br>"
             if(zDepth + stepDown < zEnd){
                 zDepth = zEnd
             } else {
