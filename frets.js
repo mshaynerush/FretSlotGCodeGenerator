@@ -6,11 +6,11 @@ function fretsTest() {
     // Get value of first fret based on scale length
     // Use firstFret value to generate the distance to each fret from the nut
 
-    scale = parseFloat(document.getElementById("scale").value)
+    scale = document.getElementById("scale").value
     divConstant = 17.817
-    numFret = parseFloat(document.getElementById("numFrets").value)
-    cutSpeed = parseFloat(document.getElementById("cutSpeed").value)
-    bitDiameter = parseFloat(document.getElementById("bitDiameter"))
+    numFret = document.getElementById("numFrets").value
+    cutSpeed = document.getElementById("cutSpeed").value
+    bitDiameter = document.getElementById("bitDiameter")
     firstFret = scale / divConstant
     yDistances = []
 
@@ -22,8 +22,7 @@ function fretsTest() {
 
         // If user is using inches, change inch values to mm
         if(document.querySelector("#inch").checked = true){
-            nextFret = nextFret * 25.4
-            
+            nextFret *= 25.4
         }
 
 
@@ -48,8 +47,8 @@ function fretsTest() {
         // if user is using inches change fret width to mm
         if(document.querySelector('#inch').checked = true){
 
-           currentFretWidth = (((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 - fretWidthReduction) * 25.4
-           
+           currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 - fretWidthReduction
+           currentFretWidth *= 25.4
         }
         
 
