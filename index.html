@@ -22,33 +22,34 @@
                 Fret slots will not punch through the sides. If you prefer a fret slot that goes all the way through, increase the fret width values by the same amount, 1/4" or 6.35mm (or your own values). 
                 Bit starting point is center of the piece at the nut where it meets the fretboard.
             </div>
-            <form name="gCode-Form" class="g-code-form">
-                <div><span class="label">Unit</span><br>
-                    <label for="inch">Inch</label>
-                    <input type="radio" name="unit" id="inch" value="in" />
-                    <label for="mm">Millimeters</label>
-                    <input type="radio" id="mm" name="unit" value="mm" />
-                    </input>
-                </div>
-                <label for="scale">Scale</label>
-                <input name="scale" id="scale" type="text" required="true"/>
-                <label for="numFrets">Number of frets</label>
-                <input name="num_frets" id="numFrets" type="text" required="true"/>
-                <label for="slotDepth">Depth of slot (Z Axis)</label>
-                <input name="slot_depth" id="slotDepth" />
-                <label for="stepDown">Maximum step down</label>
-                <input name="step_down" id="stepDown" type="text" />
-                <label for="cutSpeed">Cutting Speed</label>
-                <input name="cut_speed" id="cutSpeed" type="text" />
-                <label for="bitDiameter">Bit Diameter (.5mm recommended for frets with a cut speed around 500mm/min)</label>
-                <input name="bit_diameter" id="bitDiameter" type="text" />
-                <label for="lastFretWidth">Fretboard width at last fret</label>
-                <input name="last_fret_width" id="lastFretWidth" />
-                <label for="nutWidth">Fretboard width at Nut</label>
-                <input name="nut_width" id="nutWidth" />
-                <input type="button" class="copy-button" value="Create G Code" onclick="fretsTest()" />
-            </form>
-            
+            <div>
+                <form name="gCode-Form" class="g-code-form">
+                    <div><span class="label">Unit</span><br>
+                        <label for="inch">Inch</label>
+                        <input type="radio" name="unit" id="inch" value="in" />
+                        <label for="mm">Millimeters</label>
+                        <input type="radio" id="mm" name="unit" value="mm" />
+                        </input>
+                    </div>
+                    <label for="scale">Scale</label>
+                    <input name="scale" id="scale" type="text" required="true"/>
+                    <label for="numFrets">Number of frets</label>
+                    <input name="num_frets" id="numFrets" type="text" required="true"/>
+                    <label for="slotDepth">Depth of slot (Z Axis)</label>
+                    <input name="slot_depth" id="slotDepth" />
+                    <label for="stepDown">Maximum step down</label>
+                    <input name="step_down" id="stepDown" type="text" />
+                    <label for="cutSpeed">Cutting Speed</label>
+                    <input name="cut_speed" id="cutSpeed" type="text" />
+                    <label for="bitDiameter">Bit Diameter (.5mm recommended for frets with a cut speed around 500mm/min)</label>
+                    <input name="bit_diameter" id="bitDiameter" type="text" />
+                    <label for="lastFretWidth">Fretboard width at last fret</label>
+                    <input name="last_fret_width" id="lastFretWidth" />
+                    <label for="nutWidth">Fretboard width at Nut</label>
+                    <input name="nut_width" id="nutWidth" />
+                    <input type="button" class="copy-button" value="Create G Code" onclick="fretsTest()" />
+                </form>
+            </div>
         </div>
         <div class="code-space">
         <div class="g-code-window" id="gCodeWin"></div>
