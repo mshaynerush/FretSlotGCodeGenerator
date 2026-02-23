@@ -35,9 +35,9 @@ function fretsTest() {
         // to simplify the linear equation each part of the equation is figured separately then added together
 
         if(document.querySelector('input[name="unit"]:checked').id === "inch"){
-            fretWidthReduction = inchConversion(2, bitDiameter)
+            fretWidthReduction = inchConversion(bitDiameter)
         } else {
-            fretWidthReduction = 1.7
+            fretWidthReduction = 2 + (bitDiameter)
         }
         currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 - fretWidthReduction
         fretboardWidths.push(Number(currentFretWidth.toFixed(3)))
@@ -56,9 +56,10 @@ function fretsTest() {
 }
 
 
-function inchConversion(x, bitDiameter){
+function inchConversion(bitDiameter){
 
-    return x / 25.4 - (bitDiameter / 25.4)
+    // returns a value 2mm less than total width of fretboard plus an additional half of the bit size to keep 1mm on each side of the slot
+    return 2 / 25.4 + ((bitDiameter))
 
 }
 
