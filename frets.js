@@ -21,9 +21,6 @@ function fretsTest() {
         
 
         // If user is using inches, change inch values to mm
-        if(document.querySelector("#inch").checked = true){
-            nextFret *= 25.4
-        }
 
 
         yDistances.push(nextFret)
@@ -45,11 +42,7 @@ function fretsTest() {
         currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 - fretWidthReduction
 
         // if user is using inches change fret width to mm
-        if(document.querySelector('#inch').checked = true){
 
-           currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 - fretWidthReduction
-           currentFretWidth *= 25.4
-        }
         
 
         fretboardWidths.push(currentFretWidth)
@@ -70,13 +63,10 @@ function createGCode(yDistances, fretBoardWidths){
     gCodeWindow = document.getElementById("gCodeWin")
 
     // set unit code for CNC Movement
-    if(document.querySelector('#inch').checked = true){
-        unitCode = "G20"
-        safeTravel = 3.000 / 25.400
-    } else {
+
         unitCode = "G21"
         safeTravel = 3.000
-    }
+
 
     gCodeWindow.innerHTML = "(Created by Shayne Rushton)<br>"
     gCodeWindow.innerHTML += "(Post Process is GRBL_POST)<br>"
@@ -92,9 +82,6 @@ function createGCode(yDistances, fretBoardWidths){
 
         stepDown = -(document.getElementById("stepDown").value)
 
-        if(document.querySelector('#inch').checked = true) {
-            stepDown = stepDown * 25.4
-        }
 
         zDepth = stepDown
 
