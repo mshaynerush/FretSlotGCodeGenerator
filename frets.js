@@ -36,7 +36,7 @@ function fretsTest() {
         // to simplify the linear equation each part of the equation is figured separately then added together
 
         if(document.querySelector('input[name="unit"]:checked').id === "inch"){
-            fretWidthReduction = inchConversion(2)
+            fretWidthReduction = inchConversion(2, bitDiameter)
         } else {
             fretWidthReduction = 1.7
         }
@@ -51,9 +51,9 @@ function fretsTest() {
 }
 
 
-function inchConversion(x){
+function inchConversion(x, bitDiameter){
 
-    return x / 25.4 - (.3 / 25.4)
+    return x / 25.4 - (bitDiameter / 25.4)
 
 }
 
@@ -91,7 +91,7 @@ function createGCode(yDistances, fretBoardWidths){
         x2 = fretBoardWidths[index] / 2
         gCodeWindow.innerHTML += "G0 X" + x1 + " Y" + fret +  " F5000 <br>"
         while (zDepth > zEnd){
-            gCodeWindow.innerHTML += "G1 X" + x2 + " Y" + fret + " Z" + zDepth.toFixed(3) + "F" + cutSpeed + "<br>"
+            gCodeWindow.innerHTML += "G1 X" + x2 + " Y" + fret + " Z" + zDepth.toFixed(3) + " F" + cutSpeed + "<br>"
             if(zDepth + stepDown < zEnd){
                 zDepth = zEnd
             } else {
