@@ -124,7 +124,7 @@ function createGCode(yDistances, fretboardWidths){
 
     function copyDivToClipboard() {
         var range = document.createRange();
-        range.selectNode(document.getElementById("gCodeWindow"));
+        range.selectNode(document.getElementById("g-code-window"));
         window.getSelection().removeAllRanges(); // clear current selection
         window.getSelection().addRange(range); // to select text
         document.execCommand("copy");
