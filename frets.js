@@ -18,12 +18,11 @@ function fretsTest() {
    
     for(i = 1; i < numFrets; i++){
         nextFret = ((scale - yDistances[i - 1]) / divConstant + yDistances[i - 1])
-        
-
+        nextFret = Number(nextFret).toFixed(3)
         // If user is using inches, change inch values to mm
 
 
-        yDistances.push(nextFret.toFixed(3))
+        yDistances.push(Number(nextFret.toFixed(3)))
     }
     
     // get widths of the fretboard at each ydistance
@@ -37,10 +36,9 @@ function fretsTest() {
         totalLength = yDistances[numFrets - 1]
         // to simplify the linear equation each part of the equation is figured separately then added together
 
-      
-        fretWidthReduction = bitDiameter * 2.5        
-        currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 - fretWidthReduction
-
+        //fretWidthReduction = bitDiameter * 2.5        
+        currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 //- fretWidthReduction
+        currentFretWidth = Number(currentFretWidth).toFixed(3)
         // if user is using inches change fret width to mm
 
         
