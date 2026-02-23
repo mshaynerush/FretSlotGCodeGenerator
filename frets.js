@@ -123,7 +123,11 @@ function createGCode(yDistances, fretboardWidths){
 }
 
     function copyDivToClipboard() {
-        var codeWindow = document.getElementById('gCodeWin')
-        navigator.clipboard.writeText(codeWindow.value)
+        var codeWindow = document.getElementById('gCodeWin').innerText
+        try {
+            navigator.clipboard.writeText(codeWindow)
+        } catch (err) {
+            console.log(err.message)
+        }
 
     }
