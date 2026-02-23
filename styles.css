@@ -39,7 +39,7 @@
     font-family: Arial, Helvetica, sans-serif
 }
 
-.g-code-form input, .copy-button
+.g-code-form input
 {
     line-height: 20pt;
     margin: 5px 0 30px 0;
@@ -47,7 +47,7 @@
     border: 1px solid grey;
 }
 
-.g-code-form input[type="button"]
+.g-code-form input[type="button"], .copy-button
 {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 16pt;
