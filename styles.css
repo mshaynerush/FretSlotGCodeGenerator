@@ -45,7 +45,7 @@
     margin: 5px 0 30px 0;
     border-radius: 3px;
     border: 1px solid grey;
-    width: 3em;
+    width: 25vw;
 }
 
 .g-code-form input[type="button"], .copy-button
