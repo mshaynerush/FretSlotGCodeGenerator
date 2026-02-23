@@ -27,7 +27,7 @@ function fretsTest() {
         }
 
 
-        yDistances.push(Number(nextFret.toFixed(3)))
+        yDistances.push(nextFret)
     }
     
     // get widths of the fretboard at each ydistance
@@ -53,7 +53,7 @@ function fretsTest() {
         }
         
 
-        fretboardWidths.push(Number(currentFretWidth.toFixed(3)))
+        fretboardWidths.push(currentFretWidth)
     })
  
 
@@ -99,18 +99,18 @@ function createGCode(yDistances, fretBoardWidths){
 
         zDepth = stepDown
 
-        zEnd = -(document.getElementById("slotDepth").value)
+        zEnd = parseFloat(-(document.getElementById("slotDepth").value))
         x1 = -(fretboardWidths[index] / 2)
         x2 = fretBoardWidths[index] / 2
-        gCodeWindow.innerHTML += "G0 X" + x1 + " Y" + fret +  " F5000 <br>"
+        gCodeWindow.innerHTML += "G0 X" + x1.toFixed(3) + " Y" + fret +  " F5000 <br>"
         while (zDepth > zEnd){
-            gCodeWindow.innerHTML += "G1 X" + x2 + " Y" + fret + " Z" + zDepth.toFixed(3) + " F" + cutSpeed + " <br>"
+            gCodeWindow.innerHTML += "G1 X" + x2.toFixed(3) + " Y" + fret + " Z" + zDepth.toFixed(3) + " F" + cutSpeed + " <br>"
             if(zDepth + stepDown < zEnd){
                 zDepth = zEnd
             } else {
                 zDepth += stepDown
             }
-            gCodeWindow.innerHTML += "G1 X" + x1 + " Y" + fret + " Z" + zDepth.toFixed(3) + " <br>"
+            gCodeWindow.innerHTML += "G1 X" + x1.toFixed(3) + " Y" + fret + " Z" + zDepth.toFixed(3) + " <br>"
             if(zDepth + stepDown < zEnd){
                 zDepth = zEnd
             } else {
