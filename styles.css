@@ -57,11 +57,16 @@
     background: linear-gradient(to bottom hsl(129, 40%, 43%) hsl(127, 68%, 19%));
 }
 
+.copy-button
+{
+    width: 120px;
+}
 
 .g-code-form input[type="button"]:hover, .copy-button:hover
 {
     background-image: linear-gradient(to bottom hsl(125, 4%, 53%) hsl(125, 4%, 50%));
 }
+
 
 .code-space
 {
