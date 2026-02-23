@@ -54,7 +54,7 @@
     font-weight: 800;
     color: green;
     cursor: pointer;
-    background-image: linear-gradent(to bottom hsl(140, 4%, 83%) hsl(140, 4%, 160%));
+    background-image: linear-gradent(to bottom hsl(125, 4%, 63%) hsl(125, 4%, 60%));
 }
 
 .copy-button
@@ -65,14 +65,14 @@
     color: hsl(143, 93%, 16%);
     cursor: pointer;
     margin: 5px 0, 0, 0;
-    background-image: linear-gradent(to-bottom hsl(140, 4%, 83%) hsl(140, 4%, 160%));
+    background-image: linear-gradent(to bottom hsl(125, 4%, 63%) hsl(125, 4%, 60%));
     width: 125px;
     padding: 3px
 }
 
 .g-code-form input[type="button"]:hover, copy-button:hover
 {
-    color: hsl(143, 93%, 16%);
+    background-image: linear-gradient(to bottom hsl(125, 4%, 53%) hsl(125, 4%, 50%));
 }
 
 .code-space
