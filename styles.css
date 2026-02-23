@@ -57,21 +57,6 @@
     background: linear-gradient(to bottom hsl(129, 40%, 43%) hsl(127, 68%, 19%));
 }
 
-.copy-button
-{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16pt;
-    font-weight: 800;
-    color: hsl(143, 93%, 16%);
-    cursor: pointer;
-    margin: 5px 0, 0, 0;
-    background-image: linear-gradient(to bottom hsl(125, 4%, 63%) hsl(125, 4%, 60%));
-    width: 125px;
-    padding: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .g-code-form input[type="button"]:hover, .copy-button:hover
 {
