@@ -45,6 +45,7 @@
     margin: 5px 0 30px 0;
     border-radius: 3px;
     border: 1px solid grey;
+    width: 3em;
 }
 
 .g-code-form input[type="button"], .copy-button
@@ -62,7 +63,7 @@
     width: 120px;
 }
 
-.g-code-form input[type="button"]:hover, .copy-button:hover
+.copy-button:hover
 {
     background-image: linear-gradient(to bottom hsl(125, 4%, 53%) hsl(125, 4%, 50%));
 }
