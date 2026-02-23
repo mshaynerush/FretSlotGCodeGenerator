@@ -76,6 +76,7 @@
 
 .instructions
 {
-    display: none;
+    width: 40vw;
+    margin: .5em;
 }
 

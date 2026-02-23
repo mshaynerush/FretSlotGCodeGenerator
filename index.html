@@ -11,10 +11,11 @@
 </head>
 <body>
     <h1>Fret Slot G Code Generator for CNC</h1>
-    <p>Enter you values below. All fields required. The fret slots will be based on the nut width and the width AT the last fret and will not go all the way through. To make
-        frets go all the way through, add a quarter inch or 6 mm to each fret entry (Keeping it even) and the fret slots will be wider. If you use inches, becuase CNC machines like
-        metric, the final output will always be in mm, but it converts for you, so either choose mm and use metric numbers, or select inches and enter inch values. Copy code to a notepad
-        and save as .nc file. Processor is grbl.
+    <p class="instructions">Measure your nut where it meets the fret board. Measure the width of the fretboard at the last fret. Enter scale length, how deep you want your slot to be, how much you want 
+        the bit to step down, the bit diameter, and the cutting speed. You can use inches or mm. All G-code output will be in millimeters with the conversion being done for you, so 
+        if you use inches, just enter the inch values. For CNC that uses Inch values, I will update at a later date. For now, your G-code will be mm so you don't have to do the conversion.
+        Fret slots will not punch through the sides. If you prefer a fret slot that goes all the way through, increase the fret width values by the same amount, 1/4" or 6.35mm (or your own values).
+
     </p>
     <div>
     <div class="container">
