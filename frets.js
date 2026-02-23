@@ -6,7 +6,7 @@ function fretsTest() {
     // Get value of first fret based on scale length
     // Use firstFret value to generate the distance to each fret from the nut
 
-    console.log("Start version 2 <- version 1 reset 5.2")
+    console.log("Start version 2 <- version 1 reset 5.3")
     scale = document.getElementById("scale").value
     divConstant = 17.817
     numFrets = document.getElementById("numFrets").value
@@ -45,7 +45,7 @@ function fretsTest() {
  
         if(document.querySelector('input[name="unit"]:checked').id === "inch"){
             yInchToMM = yDistances.map(distance => Number(distance * 25.4).toFixed(3))
-            xInchToMM = fretboardWidths.map(Number(width => width * 25.4).toFixed(3))
+            xInchToMM = fretboardWidths.map(width => Number(width * 25.4).toFixed(3))
             createGCode(yInchToMM, xInchToMM)
         } else {
             createGCode(yDistances, fretboardWidths)
