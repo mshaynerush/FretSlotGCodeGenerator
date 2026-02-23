@@ -45,7 +45,7 @@ function fretsTest() {
  
         if(document.querySelector('input[name="unit"]:checked').id === "inch"){
             yDistances.map(distance => distance * 25.4)
-            fretBoardWidths.map(width => width * 25.4)
+            fretboardWidths.map(width => width * 25.4)
         }
 
     createGCode(yDistances, fretboardWidths)
