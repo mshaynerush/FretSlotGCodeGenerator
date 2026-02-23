@@ -54,7 +54,7 @@
     font-weight: 800;
     color: green;
     cursor: pointer;
-    background: linear-gradient(to bottom hsl(129, 40%, 43%) hsl(127, 68%, 19%));
+    background-image: linear-gradient(to bottom hsl(129, 40%, 43%) hsl(127, 68%, 19%));
 }
 
 .copy-button
