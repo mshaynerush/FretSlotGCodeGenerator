@@ -39,7 +39,7 @@
     font-family: Arial, Helvetica, sans-serif
 }
 
-.g-code-form input
+.g-code-form input, .copy-button
 {
     line-height: 20pt;
     margin: 5px 0 30px 0;
@@ -63,9 +63,16 @@
     font-weight: 800;
     color: hsl(143, 93%, 54%);
     cursor: pointer;
+    margin: 5px 0, 0, 0,
 }
 
 .g-code-form input[type="button"]:hover, copy-button:hover
 {
     color: hsl(143, 93%, 16%);
+}
+
+.code-space
+{
+    display: flex;
+    flex-direction: column;
 }
