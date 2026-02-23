@@ -79,7 +79,7 @@ function createGCode(yDistances, fretBoardWidths){
     }
 
     gCodeWindow.innerHTML = "(Created by Shayne Rushton)<br>"
-    gCodeWindow.innerHtML += "(Post Process is GRBL_POST)<br>"
+    gCodeWindow.innerHTML += "(Post Process is GRBL_POST)<br>"
     gCodeWindow.innerHTML += "(Begin Preamble)<br>"
     gCodeWindow.innerHTML += "G17 G90<br>" + unitCode + "<br>G54<br>"
     gCodeWindow.innerHTML += "M3 S20000<br>"
