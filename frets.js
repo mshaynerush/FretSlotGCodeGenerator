@@ -6,14 +6,12 @@ function fretsTest() {
     // Get value of first fret based on scale length
     // Use firstFret value to generate the distance to each fret from the nut
 
-
-    scale = document.getElementById("scale").value
+    scale = parseFloat(document.getElementById("scale").value)
     divConstant = 17.817
-    numFrets = document.getElementById("numFrets").value
-    cutSpeed = document.getElementById("cutSpeed").value
-    bitDiameter = document.getElementById("bitDiameter")
+    numFret = parseFloat(document.getElementById("numFrets").value)
+    cutSpeed = parseFloat(document.getElementById("cutSpeed").value)
+    bitDiameter = parseFloat(document.getElementById("bitDiameter"))
     firstFret = scale / divConstant
-    firstFret = Number(firstFret.toFixed(3))
     yDistances = []
 
     yDistances.push(firstFret)
@@ -49,7 +47,9 @@ function fretsTest() {
 
         // if user is using inches change fret width to mm
         if(document.querySelector('#inch').checked = true){
+
            currentFretWidth = (((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 - fretWidthReduction) * 25.4
+           
         }
         
 
@@ -98,7 +98,7 @@ function createGCode(yDistances, fretBoardWidths){
         }
 
         zDepth = stepDown
-        console.log(zDepth)
+
         zEnd = -(document.getElementById("slotDepth").value)
         x1 = -(fretboardWidths[index] / 2)
         x2 = fretBoardWidths[index] / 2
