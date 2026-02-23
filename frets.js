@@ -19,8 +19,11 @@ function fretsTest() {
    
     for(i = 1; i < numFrets; i++){
         nextFret = ((scale - yDistances[i - 1]) / divConstant + yDistances[i - 1])
-        nextFret = Number(nextFret.toFixed(3))
 
+        if(document.querySelector('input[name="unit"]:checked').id === "inch"){
+            nextFret *= 25.4
+        }
+        nextFret = Number(nextFret.toFixed(3))
         yDistances.push(Number(nextFret.toFixed(3)))
     }
     
@@ -41,6 +44,10 @@ function fretsTest() {
             fretWidthReduction = 1.7
         }
         currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 - fretWidthReduction
+
+        if(document.querySelector('input[name="unit"]:checked').id === "inch"){
+            currentFretWidth *= 25.4
+        }
 
         fretboardWidths.push(Number(currentFretWidth.toFixed(3)))
     })
@@ -85,6 +92,11 @@ function createGCode(yDistances, fretBoardWidths){
 
     yDistances.map((fret, index) => {
         stepDown = -(document.getElementById("stepDown").value)
+        
+        if(document.querySelector('input[name="unit"]:checked').id === "inch"){
+            stepDown *= 25.4
+        }
+
         zDepth = stepDown
         zEnd = -(document.getElementById("slotDepth").value)
         x1 = -(fretboardWidths[index] / 2)
