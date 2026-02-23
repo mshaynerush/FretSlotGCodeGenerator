@@ -6,7 +6,7 @@ function fretsTest() {
     // Get value of first fret based on scale length
     // Use firstFret value to generate the distance to each fret from the nut
 
-
+    console.log("Start version 2 <- version 1 reset")
     scale = document.getElementById("scale").value
     divConstant = 17.817
     numFrets = document.getElementById("numFrets").value
