@@ -6,21 +6,19 @@ function fretsTest() {
     // Get value of first fret based on scale length
     // Use firstFret value to generate the distance to each fret from the nut
 
+
     scale = document.getElementById("scale").value
     divConstant = 17.817
-    numFret = document.getElementById("numFrets").value
-    cutSpeed = document.getElementById("cutSpeed").value
-    bitDiameter = document.getElementById("bitDiameter")
+    numFrets = document.getElementById("numFrets").value
     firstFret = scale / divConstant
+    firstFret = Number(firstFret.toFixed(3))
     yDistances = []
 
     yDistances.push(firstFret)
    
     for(i = 1; i < numFrets; i++){
         nextFret = ((scale - yDistances[i - 1]) / divConstant + yDistances[i - 1])
-        nextFret = Number(nextFret).toFixed(3)
-        // If user is using inches, change inch values to mm
-
+        nextFret = Number(nextFret.toFixed(3))
 
         yDistances.push(Number(nextFret.toFixed(3)))
     }
@@ -36,14 +34,14 @@ function fretsTest() {
         totalLength = yDistances[numFrets - 1]
         // to simplify the linear equation each part of the equation is figured separately then added together
 
-        //fretWidthReduction = bitDiameter * 2.5        
-        currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 //- fretWidthReduction
-        currentFretWidth = Number(currentFretWidth).toFixed(3)
-        // if user is using inches change fret width to mm
+        if(document.querySelector('input[name="unit"]:checked').id === "inch"){
+            fretWidthReduction = inchConversion(2)
+        } else {
+            fretWidthReduction = 1.7
+        }
+        currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 - fretWidthReduction
 
-        
-
-        fretboardWidths.push(currentFretWidth.toFixed(3))
+        fretboardWidths.push(Number(currentFretWidth.toFixed(3)))
     })
  
 
@@ -52,22 +50,30 @@ function fretsTest() {
 }
 
 
+function inchConversion(x){
+
+    return x / 25.4 - (.3 / 25.4)
+
+}
+
 
 function createGCode(yDistances, fretBoardWidths){
 
-
-
+    
     // get window to retun G Code to
     gCodeWindow = document.getElementById("gCodeWin")
 
     // set unit code for CNC Movement
-
+    if(document.querySelector('input[name="unit"]:checked').id === "inch"){
+        unitCode = "G20"
+        safeTravel = 3.000 / 25.400
+    } else {
         unitCode = "G21"
         safeTravel = 3.000
-
+    }
 
     gCodeWindow.innerHTML = "(Created by Shayne Rushton)<br>"
-    gCodeWindow.innerHTML += "(Post Process is GRBL_POST)<br>"
+    gCodeWindow.innerHtML += "(Post Process is GRBL_POST)<br>"
     gCodeWindow.innerHTML += "(Begin Preamble)<br>"
     gCodeWindow.innerHTML += "G17 G90<br>" + unitCode + "<br>G54<br>"
     gCodeWindow.innerHTML += "M3 S20000<br>"
@@ -75,26 +81,21 @@ function createGCode(yDistances, fretBoardWidths){
     //gCodeWindow.innerHTML += "G0 X" + -(fretboardWidths[0] / 2) + " Y" + yDistances[0] + "<br>"
 
     yDistances.map((fret, index) => {
-
-
-
         stepDown = -(document.getElementById("stepDown").value)
-
-
         zDepth = stepDown
-
-        zEnd = parseFloat(-(document.getElementById("slotDepth").value))
+        console.log(zDepth)
+        zEnd = -(document.getElementById("slotDepth").value)
         x1 = -(fretboardWidths[index] / 2)
         x2 = fretBoardWidths[index] / 2
-        gCodeWindow.innerHTML += "G0 X" + x1.toFixed(3) + " Y" + fret +  " F5000 <br>"
+        gCodeWindow.innerHTML += "G0 X" + x1 + " Y" + fret +  " F5000 <br>"
         while (zDepth > zEnd){
-            gCodeWindow.innerHTML += "G1 X" + x2.toFixed(3) + " Y" + fret + " Z" + zDepth.toFixed(3) + " F" + cutSpeed + " <br>"
+            gCodeWindow.innerHTML += "G1 X" + x2 + " Y" + fret + " Z" + zDepth.toFixed(3) + " F900 <br>"
             if(zDepth + stepDown < zEnd){
                 zDepth = zEnd
             } else {
                 zDepth += stepDown
             }
-            gCodeWindow.innerHTML += "G1 X" + x1.toFixed(3) + " Y" + fret + " Z" + zDepth.toFixed(3) + " <br>"
+            gCodeWindow.innerHTML += "G1 X" + x1 + " Y" + fret + " Z" + zDepth.toFixed(3) + " <br>"
             if(zDepth + stepDown < zEnd){
                 zDepth = zEnd
             } else {
