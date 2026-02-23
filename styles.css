@@ -63,7 +63,10 @@
     width: auto;
 }
 
-
+.copy-code
+{
+    width: 120px;
+}
 
 .copy-button:hover
 {
