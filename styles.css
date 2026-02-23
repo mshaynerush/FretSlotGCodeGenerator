@@ -73,7 +73,7 @@
     align-items: center;
 }
 
-.g-code-form input[type="button"]:hover, copy-button:hover
+.g-code-form input[type="button"]:hover, .copy-button:hover
 {
     background-image: linear-gradient(to bottom hsl(125, 4%, 53%) hsl(125, 4%, 50%));
 }
