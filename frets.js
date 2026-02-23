@@ -121,3 +121,12 @@ function createGCode(yDistances, fretboardWidths){
     gCodeWindow.innerHTML += "M5<br>G17 G90<br>M2"
 
 }
+
+    function copyDivToClipboard() {
+        var range = document.createRange();
+        range.selectNode(document.getElementById("gCodeWindow"));
+        window.getSelection().removeAllRanges(); // clear current selection
+        window.getSelection().addRange(range); // to select text
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();// to deselect
+    }

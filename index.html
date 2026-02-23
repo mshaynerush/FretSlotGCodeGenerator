@@ -20,17 +20,17 @@
                     </input>
                 </div>
                 <label for="scale">Scale</label>
-                <input name="scale" id="scale" type="text"/>
+                <input name="scale" id="scale" type="text" required="true"/>
                 <label for="numFrets">Number of frets</label>
-                <input name="num_frets" id="numFrets" type="text" />
+                <input name="num_frets" id="numFrets" type="text" required="true"/>
                 <label for="slotDepth">Depth of slot (Z Axis)</label>
                 <input name="slot_depth" id="slotDepth" />
                 <label for="stepDown">Maximum step down</label>
-                <input name="step_down" id="stepDown" type="number" />
+                <input name="step_down" id="stepDown" type="text" />
                 <label for="cutSpeed">Cutting Speed</label>
-                <input name="cut_speed" id="cutSpeed" type="number" />
+                <input name="cut_speed" id="cutSpeed" type="text" />
                 <label for="bit_diameter">Bit Diameter (.5mm recommended for frets with a cut speed around 500mm/min)</label>
-                <input name="bit_diameter" id="bitDiameter" type="number" />
+                <input name="bit_diameter" id="bitDiameter" type="text" />
                 <label for="last_fret_width">Fretboard width at last fret</label>
                 <input name="lastFretWidth" id="lastFretWidth" />
                 <label for="nutWidth">Fretboard width at Nut</label>
@@ -39,8 +39,8 @@
             </form>
             
         </div>
-        <div class="g-code-window" id="gCodeWin">
-        </div>
+        <div class="g-code-window" id="gCodeWin"></div>
+        <div class="copy-button" onclick="copyDivToClipboard()">Copy</div>
     </div>
     <div class="donate">If you find this tool useful consider <a href="https://buymeacoffee.com/shaynerushton">donating</a></div>
 </body>

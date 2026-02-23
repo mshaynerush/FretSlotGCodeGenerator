@@ -13,4 +13,6 @@ Generate the G Code, copy and paste it into a plain text editor, give it name an
 This tool expects a .6mm tool for cutting fret slots. Future iterations will allow you to choose the size of your bit, but .6mm makes a good slot for the standard fret.
 
 
+The G-code final output will convert to mm. let me know if there is an error here.
 
+Also if you want your fret tangs to go all the way from edge to edge, increase the width of the nut and last fret by a few millimeters or a quarter inch, making sure you increase them equally to maintain the correct fret width calculations. The way the current tool works is for a clean fretboard edge.
