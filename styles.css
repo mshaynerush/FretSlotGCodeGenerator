@@ -14,7 +14,7 @@
     flex-wrap: wrap;
     flex-direction: column;
     width: 50vw;
-    max-height: 350px;
+    max-height: 100vh;
 }
 
 .g-code-window
