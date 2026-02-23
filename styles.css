@@ -54,7 +54,7 @@
     font-weight: 800;
     color: green;
     cursor: pointer;
-    background-image: linear-gradent(to bottom hsl(125, 4%, 63%) hsl(125, 4%, 60%));
+    background-image: linear-gradent(to bottom hsl(129, 40%, 43%) hsl(127, 68%, 19%));
 }
 
 .copy-button
@@ -82,4 +82,10 @@
 {
     display: flex;
     flex-direction: column;
+}
+
+label, .label
+{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    size: 1.2em;
 }
