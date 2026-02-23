@@ -6,7 +6,7 @@ function fretsTest() {
     // Get value of first fret based on scale length
     // Use firstFret value to generate the distance to each fret from the nut
 
-    console.log("Start version 2 <- version 1 reset 5.3")
+    console.log("Start version 2 <- version 1 reset 5.4")
     scale = document.getElementById("scale").value
     divConstant = 17.817
     numFrets = document.getElementById("numFrets").value
@@ -90,13 +90,13 @@ function createGCode(yDistances, fretboardWidths){
 
     yDistances.map((fret, index) => {
         stepDown = -(document.getElementById("stepDown").value)
-
+        zEnd = -(document.getElementById("slotDepth").value)
         if(document.querySelector('input[name="unit"]:checked').id === "inch"){
             stepDown *= 25.4
+            zEnd *= 25.4
         }
 
         zDepth = stepDown
-        zEnd = -(document.getElementById("slotDepth").value)
         x1 = -(fretboardWidths[index] / 2)
         x2 = fretboardWidths[index] / 2
         gCodeWindow.innerHTML += "G0 X" + x1 + " Y" + fret +  " F5000 <br>"
