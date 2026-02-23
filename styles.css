@@ -31,7 +31,7 @@
     flex-direction: column;
 }
 
-.g-code-form label
+.g-code-form label, .label
 {
     line-height: 18pt;
     padding: 2px;
@@ -84,8 +84,3 @@
     flex-direction: column;
 }
 
-label, .label
-{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    size: 1.2em;
-}
