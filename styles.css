@@ -1,6 +1,7 @@
 .container
 {
     display: flex;
+    flex-wrap: wrap;;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 1.5%;
@@ -11,9 +12,18 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    flex-wrap: wrap;
     flex-direction: column;
-    width: 50vw;
+    width: 40vw;
+    max-height: 100vh;
+}
+
+.code-body
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: space-between;
+    width: 40vw;
     max-height: 100vh;
 }
 
@@ -74,11 +84,6 @@
 }
 
 
-.code-space
-{
-    display: flex;
-    flex-direction: column;
-}
 
 .instructions
 {
