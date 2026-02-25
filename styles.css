@@ -10,9 +10,9 @@
 .form-body
 {
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    flex-direction: column;
     width: 40vw;
     max-height: 100vh;
 }
@@ -44,6 +44,7 @@
 {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .g-code-form label, .label
