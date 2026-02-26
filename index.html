@@ -10,58 +10,65 @@
 
 </head>
 <body>
-    <h1>Fret Slot G Code Generator for CNC</h1>
-
-    <div>
-    <div class="container">
-
-        <div class="form-body">
-            <div class="instructions">Measure your nut where it meets the fret board. Measure the width of the fretboard at the last fret. Enter scale length, how deep you want your slot to be, how much you want 
-                the bit to step down, the bit diameter, and the cutting speed. You can use inches or mm. All G-code output will be in millimeters with the conversion being done for you, so 
-                if you use inches, just enter the inch values. For CNC that uses Inch values, I will update at a later date. For now, your G-code will be mm so you don't have to do the conversion.
-                Fret slots will not punch through the sides. If you prefer a fret slot that goes all the way through, increase the fret width values by the same amount, 1/4" or 6.35mm (or your own values). 
-                Bit starting point is center of the piece at the nut where it meets the fretboard. Copy the code and paste into a notepad, save as type all with the .nc extension. 
-                Uses grbl processing.
-
-                To create a test for your CNC to run a path to verify the behavior, make your step down and your depth of slot the same, set your Z0 to above the fretboard and then you 
-                can run the job and see the path it will take. Once you're satisfied with the paths, you can set the dept correctly and the Z0 to the correct start point.
-            </div>
-            <div>
-                <form name="gCode-Form" class="g-code-form">
-                    <div><span class="label">Unit</span><br>
-                        <label for="inch">Inch</label>
-                        <input type="radio" name="unit" id="inch" value="in" />
-                        <label for="mm">Millimeters</label>
-                        <input type="radio" id="mm" name="unit" value="mm" />
-                        </input>
+   <div class="container">
+        <form>
+            <div class="radio-group full-width">
+                <label>Unit</label>
+                <div class="radio-options">
+                    <div>
+                        <input type="radio" id="mm" name="unit" value="mm" checked>
+                        <label for="mm">mm</label>
                     </div>
-                    <label for="scale">Scale</label>
-                    <input name="scale" id="scale" type="text" required="true"/>
-                    <label for="numFrets">Number of frets</label>
-                    <input name="num_frets" id="numFrets" type="text" required="true"/>
-                    <label for="slotDepth">Depth of slot (Z Axis)</label>
-                    <input name="slot_depth" id="slotDepth" />
-                    <label for="stepDown">Maximum step down</label>
-                    <input name="step_down" id="stepDown" type="text" />
-                    <label for="cutSpeed">Cutting Speed</label>
-                    <input name="cut_speed" id="cutSpeed" type="text" />
-                    <label for="bitDiameter">Bit Diameter (.5mm recommended for frets with a cut speed around 500mm/min)</label>
-                    <input name="bit_diameter" id="bitDiameter" type="text" />
-                    <label for="lastFretWidth">Fretboard width at last fret</label>
-                    <input name="last_fret_width" id="lastFretWidth" />
-                    <label for="nutWidth">Fretboard width at Nut</label>
-                    <input name="nut_width" id="nutWidth" />
-                    <input type="button" class="copy-button" value="Create G Code" onclick="fretsTest()" />
-                </form>
+                    <div>
+                        <input type="radio" id="in" name="unit" value="inch">
+                        <label for="in">inch</label>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="code-space">
-        <div class="g-code-window" id="gCodeWin"></div>
-        <button class="copy-button copy-code" onclick="copyDivToClipboard()">Copy</button>
-        <p class="instructions">You can copy this code and paste it into <a href="https://gcodetutor.com/cnc-program-simulator.html" target="new">this online cam simulator</a> to ensure the paths look correct.</p>
+            <div class="form-group">
+                <label for="scale">Scale Length</label>
+                <input type="text" id="scale" name="scale">
+            </div>
+            <div class="form-group">
+                <label for="numFrets">Number of Frets</label>
+                <input type="text" id="numFrets" name="num_frets">
+            </div>
+            <div class="form-group">
+                <label for="slotDepth">Depth of Slot</label>
+                <input type="text" id="slotDepth" name="slot_depth">
+            </div>
+            <div class="form-group">
+                <label for="stepDown">Maximum Stepdown</label>
+                <input type="text" id="stepDown" name="step_down">
+            </div>
+            <div class="form-group">
+                <label for="cutSpeed">Cutting Speed</label>
+                <input type="text" id="cutSpeed" name="cut_speed">
+            </div>
+            <div class="form-group">
+                <label for="bitDiameter">Bit Diameter</label>
+                <input type="text" id="bitDiameter" name="bit_diameter">
+            </div>
+            <div class="form-group">
+                <label for="lastFretWidth">Fretboard width at last fret</label>
+                <input type="text" id="lastFretWidth" name="last_fret_width">
+            </div>
+            <div class="form-group">
+                <label for="nutWidth">Fretboard width at nut</label>
+                <input type="text" id="nutWidth" name="nut_width">
+            </div>
+            <div class="form-group full-width">
+                 <button type="button" onclick="fretsTest()">Generate G Code</button>
+            </div>
+        </form>
+        <div class="g-code-window" id="gCodeWin">
+            <!-- G Code will be displayed here -->
+            This is where the generated G-Code will appear.
+            It will scroll if the content is too long.
         </div>
     </div>
-    <div class="donate">If you find this tool useful consider <a href="https://buymeacoffee.com/shaynerushton">donating</a></div>
-    
+    <div class="button-container">
+        <button onclick="copyDivToClipboard()">Copy</button>
+    </div>
 </body>
 </html>
