@@ -25,37 +25,41 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="scale">Scale Length</label>
-                <input type="text" id="scale" name="scale">
+            <div class="form-column">
+                <div class="form-group">
+                    <label for="scale">Scale Length</label>
+                    <input type="text" id="scale" name="scale">
+                </div>
+                <div class="form-group">
+                    <label for="numFrets">Number of Frets</label>
+                    <input type="text" id="numFrets" name="num_frets">
+                </div>
+                <div class="form-group">
+                    <label for="slotDepth">Depth of Slot</label>
+                    <input type="text" id="slotDepth" name="slot_depth">
+                </div>
+                <div class="form-group">
+                    <label for="stepDown">Maximum Stepdown</label>
+                    <input type="text" id="stepDown" name="step_down">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="numFrets">Number of Frets</label>
-                <input type="text" id="numFrets" name="num_frets">
-            </div>
-            <div class="form-group">
-                <label for="slotDepth">Depth of Slot</label>
-                <input type="text" id="slotDepth" name="slot_depth">
-            </div>
-            <div class="form-group">
-                <label for="stepDown">Maximum Stepdown</label>
-                <input type="text" id="stepDown" name="step_down">
-            </div>
-            <div class="form-group">
-                <label for="cutSpeed">Cutting Speed</label>
-                <input type="text" id="cutSpeed" name="cut_speed">
-            </div>
-            <div class="form-group">
-                <label for="bitDiameter">Bit Diameter</label>
-                <input type="text" id="bitDiameter" name="bit_diameter">
-            </div>
-            <div class="form-group">
-                <label for="lastFretWidth">Fretboard width at last fret</label>
-                <input type="text" id="lastFretWidth" name="last_fret_width">
-            </div>
-            <div class="form-group">
-                <label for="nutWidth">Fretboard width at nut</label>
-                <input type="text" id="nutWidth" name="nut_width">
+            <div class="form-column">
+                <div class="form-group">
+                    <label for="cutSpeed">Cutting Speed</label>
+                    <input type="text" id="cutSpeed" name="cut_speed">
+                </div>
+                <div class="form-group">
+                    <label for="bitDiameter">Bit Diameter</label>
+                    <input type="text" id="bitDiameter" name="bit_diameter">
+                </div>
+                <div class="form-group">
+                    <label for="lastFretWidth">Fretboard width at last fret</label>
+                    <input type="text" id="lastFretWidth" name="last_fret_width">
+                </div>
+                <div class="form-group">
+                    <label for="nutWidth">Fretboard width at nut</label>
+                    <input type="text" id="nutWidth" name="nut_width">
+                </div>
             </div>
             <div class="form-group full-width">
                  <button type="button" onclick="fretsTest()">Generate G Code</button>
