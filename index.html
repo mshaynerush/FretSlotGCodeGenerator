@@ -17,11 +17,11 @@
                 <div class="radio-options">
                     <div>
                         <input type="radio" id="mm" name="unit" value="mm" checked>
-                        <label for="mm">mm</label>
+                        <label for="mm">Millimeters</label>
                     </div>
                     <div>
                         <input type="radio" id="in" name="unit" value="inch">
-                        <label for="in">inch</label>
+                        <label for="in">Inches</label>
                     </div>
                 </div>
             </div>
@@ -66,9 +66,10 @@
             This is where the generated G-Code will appear.
             It will scroll if the content is too long.
         </div>
+        <div class="button-container">
+            <button onclick="copyDivToClipboard()">Copy</button>
+        </div>
     </div>
-    <div class="button-container">
-        <button onclick="copyDivToClipboard()">Copy</button>
-    </div>
+
 </body>
 </html>
