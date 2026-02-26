@@ -31,13 +31,14 @@ body {
             gap: 1em;
             min-width: 300px; /* Minimum width before stacking */
             max-width: 45vw;
+                        justify-content: center;
+            align-items: flex-start;
         }
         .form-column
         {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
+
         }
         .form-group {
             display: flex;
