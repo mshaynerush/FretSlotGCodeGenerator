@@ -97,6 +97,7 @@ body {
             border: 1px solid black;
             overflow: scroll;
             max-height: 100vh; /* Adjust as needed */
+            width: 100%;
             min-width: 300px; /* Minimum width before stacking */
         }
         .button-container {
