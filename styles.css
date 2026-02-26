@@ -23,6 +23,7 @@ body {
             max-width: 45vw;
         }
         form {
+            display: flex;
             flex: 1;
             padding: 2em;
             box-sizing: border-box;
@@ -31,14 +32,13 @@ body {
             gap: 1em;
             min-width: 300px; /* Minimum width before stacking */
             max-width: 45vw;
-                        justify-content: center;
+            justify-content: center;
             align-items: flex-start;
         }
         .form-column
         {
             display: flex;
             flex-direction: column;
-
         }
         .form-group {
             display: flex;
