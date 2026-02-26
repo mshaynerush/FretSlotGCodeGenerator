@@ -26,8 +26,8 @@ body {
             flex: 1;
             padding: 2em;
             box-sizing: border-box;
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 1em;
             min-width: 300px; /* Minimum width before stacking */
             max-width: 45vw;
