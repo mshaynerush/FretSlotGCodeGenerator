@@ -1,13 +1,9 @@
 
 
 function fretsTest() {
-
-
-
     // Set values for x widths and y distances
     // Get value of first fret based on scale length
     // Use firstFret value to generate the distance to each fret from the nut
-
 
     // Gather User Inputs
 
@@ -35,10 +31,6 @@ function fretsTest() {
     
     // get widths of the fretboard at each ydistance
 
-
-
-
-    
     yDistances.map(fret => {
         totalLength = yDistances[numFrets - 1]
         // to simplify the linear equation each part of the equation is figured separately then added together
@@ -77,8 +69,12 @@ function createGCode(yDistances, fretboardWidths){
     // get window to retun G Code to
     gCodeWindow = document.getElementById("gCodeWin")
 
-    // set unit code for CNC Movement
-    
+    // safe travel height
+    if(gUnitValue === "G20"){
+        safeTrave = .025
+    } else {
+        safeTravel = 3.0
+    }
 
     gCodeWindow.innerHTML = "(Created by Shayne Rushton)<br>"
     gCodeWindow.innerHtML += "(Post Process is GRBL_POST)<br>"
