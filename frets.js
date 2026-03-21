@@ -133,7 +133,7 @@ function createGCode(yDistances, fretboardWidths){
 
     }
 
-    function showHide(e){
+    function showHide(){
        
         const menuButton = document.querySelector("#menuButton")
         const instructionsDiv = document.querySelector("#instructions")
