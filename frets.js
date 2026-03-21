@@ -135,7 +135,7 @@ function setFretDistances(firstFret, numFrets, divConstant){
         distances.push(firstFret)
         for(i = 1; i < numFrets; i++){
         nextFret = ((scale - distances[i - 1]) / divConstant + distances[i - 1])
-        nextFret = Number(nextFret.toFixed(3))
+        nextFret = Number(nextFret).toFixed(3)
         distances.push(nextFret)
         }
 
