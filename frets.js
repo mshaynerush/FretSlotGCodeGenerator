@@ -1,3 +1,6 @@
+const menuButton = document.querySelector("#menuButton")
+menuButton.addEventListener('click', showHide())
+
 function fretsTest() {
 
 
@@ -135,7 +138,7 @@ function createGCode(yDistances, fretboardWidths){
 
     function showHide(){
        
-        const menuButton = document.querySelector("#menuButton")
+       
         const instructionsDiv = document.querySelector("#instructions")
 
             if(instructionsDiv.className === "closed"){
@@ -146,4 +149,3 @@ function createGCode(yDistances, fretboardWidths){
 
     }
 
-    menuButton.addEventListener('click', showHide())
