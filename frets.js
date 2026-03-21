@@ -61,7 +61,7 @@ function createGCode(yDistances, fretboardWidths){
 
     // safe travel height
     if(gUnitValue === "G20"){
-        safeTrave = .025
+        safeTravel = .025
     } else {
         safeTravel = 3.0
     }
