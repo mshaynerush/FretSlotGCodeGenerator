@@ -33,7 +33,7 @@ function fretsTest() {
         } else {
             fretWidthReduction =  2 + (bitDiameter)
         }
-        currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 - fretWidthReduction
+        currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2) - fretWidthReduction
         fretboardWidths.push(Number(currentFretWidth.toFixed(3)))
     })
  
@@ -134,7 +134,8 @@ function createGCode(yDistances, fretboardWidths){
 function setFretDistances(firstFret, numFrets, divConstant){
 
         distances = []
-        distances.push(Number(firstFret).toFixed(3))
+        firstFret = Number(firstFret).toFixed(3)
+        distances.push(firstFret)
         for(i = 1; i < numFrets; i++){
         nextFret = ((scale - distances[i - 1]) / divConstant + distances[i - 1])
         nextFret = Number(nextFret.toFixed(3))
