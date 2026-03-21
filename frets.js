@@ -34,7 +34,7 @@ function fretsTest() {
             fretWidthReduction =  2 + (bitDiameter)
         }
         currentFretWidth = ((fret/totalLength) * base1) + (((totalLength - fret)/totalLength) * base2) - fretWidthReduction
-        currentFretWidth = Number(currentFretWidth.)toFixed(3)
+        currentFretWidth = Number(currentFretWidth).toFixed(3)
         fretboardWidths.push(currentFretWidth)
     })
  
