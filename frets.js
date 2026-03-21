@@ -134,7 +134,7 @@ function createGCode(yDistances, fretboardWidths){
 
 function setFretDistances(firstFret){
 
-        distnaces = []
+        distances = []
         for(i = 1; i < numFrets; i++){
         nextFret = ((scale - yDistances[i - 1]) / divConstant + yDistances[i - 1])
         nextFret = Number(nextFret.toFixed(3))
