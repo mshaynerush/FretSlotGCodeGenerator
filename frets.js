@@ -114,7 +114,7 @@ function createGCode(yDistances, fretboardWidths){
 
     }
 
-    function showHide(){
+    function alshowHide(){
        
        
         const instructionsDiv = document.querySelector("#instructions")
@@ -135,8 +135,8 @@ function setFretDistances(firstFret, numFrets, divConstant){
         distances.push(firstFret)
         for(i = 1; i < numFrets; i++){
         nextFret = ((scale - distances[i - 1]) / divConstant + distances[i - 1])
-        nextFret = Number(nextFret).toFixed(3)
-        distances.push(Number(nextFret).toFixed(3))
+        nextFretVal = Number(nextFret).toFixed(3)
+        distances.push(nextFretVal)
         }
 
     return distances
