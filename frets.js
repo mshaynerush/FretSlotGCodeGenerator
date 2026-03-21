@@ -13,8 +13,8 @@ function fretsTest() {
     numFrets = document.getElementById("numFrets").value
     bitDiameter = document.getElementById("bitDiameter").value
     firstFret = scale / divConstant
-    base1 = document.getElementById("lastFretWidth").value
-    base2 = document.getElementById("nutWidth").value
+    base1 = parseFloat(document.getElementById("lastFretWidth").value)
+    base2 = parseFloat(document.getElementById("nutWidth").value)
 
     // Set Arrays to hold widths and distances from nut for frets
     yDistances = []
