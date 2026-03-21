@@ -13,8 +13,8 @@ function fretsTest() {
     numFrets = document.getElementById("numFrets").value
     bitDiameter = document.getElementById("bitDiameter").value
     firstFret = scale / divConstant
-    base1 = parseFloat(document.getElementById("lastFretWidth").value)
-    base2 = parseFloat(document.getElementById("nutWidth").value)
+    base1 = document.getElementById("lastFretWidth").value
+    base2 = document.getElementById("nutWidth").value)
 
     // Set Arrays to hold widths and distances from nut for frets
     yDistances = []
@@ -35,7 +35,7 @@ function fretsTest() {
         }
         currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - (fret/totalLength)) * base2) - fretWidthReduction
         
-        fretboardWidths.push(Number(currentFretWidth).toFixed(3))
+        fretboardWidths.push(currentFretWidth)
     })
  
 
@@ -135,7 +135,6 @@ function setFretDistances(firstFret, numFrets, divConstant){
         distances.push(firstFret)
         for(i = 1; i < numFrets; i++){
         nextFret = ((scale - distances[i - 1]) / divConstant + distances[i - 1])
-        nextFretVal = Number(nextFret).toFixed(3)
         distances.push(nextFretVal)
         }
 
