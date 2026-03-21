@@ -21,7 +21,7 @@ function fretsTest() {
     yDistances = []
     fretboardWidths = []
     
-    yDistances = setFretDistances(firstFret)
+    yDistances = setFretDistances(firstFret, numFrets)
     
     // get widths of the fretboard at each ydistance
 
@@ -132,14 +132,14 @@ function createGCode(yDistances, fretboardWidths){
     }
 
 
-function setFretDistances(firstFret){
+function setFretDistances(firstFret, numFrets){
 
         distances = []
         for(i = 1; i < numFrets; i++){
         nextFret = ((scale - yDistances[i - 1]) / divConstant + yDistances[i - 1])
         nextFret = Number(nextFret.toFixed(3))
         distances.push(Number(nextFret.toFixed(3)))
-    }
+        }
 
     return distances
 }
