@@ -1,5 +1,4 @@
-const menuButton = document.querySelector("#menuButton")
-menuButton.addEventListener('click', showHide())
+
 
 function fretsTest() {
 
