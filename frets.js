@@ -14,7 +14,6 @@ function fretsTest() {
     scale = document.getElementById("scale").value
     divConstant = 17.817
     gUnitValue = document.querySelector('input[name="unit"]:checked').value;
-
     numFrets = document.getElementById("numFrets").value
     bitDiameter = document.getElementById("bitDiameter").value
     firstFret = scale / divConstant
@@ -44,22 +43,18 @@ function fretsTest() {
         totalLength = yDistances[numFrets - 1]
         // to simplify the linear equation each part of the equation is figured separately then added together
 
-        if(document.querySelector('input[name="unit"]:checked').id === "inch"){
+        if(gUnitValue === "G20"){
             fretWidthReduction = inchConversion(bitDiameter)
         } else {
-            fretWidthReduction = 2 + (bitDiameter)
+            fretWidthReduction =  2 + (bitDiameter)
         }
         currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - fret)/totalLength) * base2 - fretWidthReduction
         fretboardWidths.push(Number(currentFretWidth.toFixed(3)))
     })
  
-        if(document.querySelector('input[name="unit"]:checked').id === "inch"){
-            yInchToMM = yDistances.map(distance => Number(distance * 25.4).toFixed(3))
-            xInchToMM = fretboardWidths.map(width => Number(width * 25.4).toFixed(3))
-            createGCode(yInchToMM, xInchToMM)
-        } else {
-            createGCode(yDistances, fretboardWidths)
-        }
+
+        createGCode(yDistances, fretboardWidths)
+        
 
     
 
@@ -83,18 +78,12 @@ function createGCode(yDistances, fretboardWidths){
     gCodeWindow = document.getElementById("gCodeWin")
 
     // set unit code for CNC Movement
-    if(document.querySelector('input[name="unit"]:checked').id === "inch"){
-        unitCode = "G20"
-        safeTravel = 3.000 / 25.400
-    } else {
-        unitCode = "G21"
-        safeTravel = 3.000
-    }
+    
 
     gCodeWindow.innerHTML = "(Created by Shayne Rushton)<br>"
     gCodeWindow.innerHtML += "(Post Process is GRBL_POST)<br>"
     gCodeWindow.innerHTML += "(Begin Preamble)<br>"
-    gCodeWindow.innerHTML += "G17 G90<br>" + unitCode + "<br>G54<br>"
+    gCodeWindow.innerHTML += "G17 G90<br>" + gUnitValue + "<br>G54<br>"
     gCodeWindow.innerHTML += "M3 S20000<br>"
     gCodeWindow.innerHTML += "G0 Z" + safeTravel.toFixed(3) + " F5000<br>"
     //gCodeWindow.innerHTML += "G0 X" + -(fretboardWidths[0] / 2) + " Y" + yDistances[0] + "<br>"
@@ -102,10 +91,6 @@ function createGCode(yDistances, fretboardWidths){
     yDistances.map((fret, index) => {
         stepDown = -(document.getElementById("stepDown").value)
         zEnd = -(document.getElementById("slotDepth").value)
-        if(document.querySelector('input[name="unit"]:checked').id === "inch"){
-            stepDown *= 25.4
-            zEnd *= 25.4
-        }
 
         zDepth = stepDown
         x1 = -(fretboardWidths[index] / 2)
