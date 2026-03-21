@@ -8,15 +8,24 @@ function fretsTest() {
     // Get value of first fret based on scale length
     // Use firstFret value to generate the distance to each fret from the nut
 
-    console.log("Start version 2 <- version 1 reset 5.4")
+
+    // Gather User Inputs
+
     scale = document.getElementById("scale").value
     divConstant = 17.817
+    gUnitValue = document.querySelector('input[name="unit"]:checked').value;
+
     numFrets = document.getElementById("numFrets").value
     bitDiameter = document.getElementById("bitDiameter").value
     firstFret = scale / divConstant
     firstFret = Number(firstFret.toFixed(3))
-    yDistances = []
+    base1 = document.getElementById("lastFretWidth").value
+    base2 = document.getElementById("nutWidth").value
 
+    // Set Arrays to hold widths and distances from nut for frets
+    yDistances = []
+    fretboardWidths = []
+    
     yDistances.push(firstFret)
    
     for(i = 1; i < numFrets; i++){
@@ -26,9 +35,8 @@ function fretsTest() {
     }
     
     // get widths of the fretboard at each ydistance
-    base1 = document.getElementById("lastFretWidth").value
-    base2 = document.getElementById("nutWidth").value
-    fretboardWidths = []
+
+
 
 
     
