@@ -132,3 +132,18 @@ function createGCode(yDistances, fretboardWidths){
         }
 
     }
+
+    function showHide(e){
+       
+        const menuButton = document.querySelector("#menuButton")
+        const instructionsDiv = document.querySelector("#instructions")
+
+            if(instructionsDiv.className === "closed"){
+                instructionsDiv.className = "open"
+            } else {
+                instructionsDiv.className = "closed"
+            }
+
+    }
+
+    menuButton.addEventListener('click', showHide())

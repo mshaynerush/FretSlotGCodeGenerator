@@ -10,59 +10,94 @@
 
 </head>
 <body>
-   <div class="container">
+<h1>Fret Slot G Code Generator</h1>
+   <div class="container" onclick="showHide()">
+        <nav>
+            <div class="drop-down" id="menuButton">
+                <span class="instructions-menu">Instructions</span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+            </div>
+       </nav>
+       <div id="instructions">
+            <p>To use this Gcode generator, you need to have some information. Using math, it is possible to determin the width along any point on a trapezoid if you know the widths of the base and the
+                base and the top of the shape. In the case of your fretboard, which tapers and is trapezoidal, you can measure the width where the nut meets the fingerboard and the width
+                of the last fret. You can determine the width by either measuring from nut to your last fret, but for accuracy, you can find many fretboard calculators that will tell you the distance
+                from the nut to the last fret. Google "stewmac fret calculator" and it will take you to a page where you can enter the scale length and how many frets and you can see the last fret
+                distance. Use that number to measure the location of your last fret. I recommend a combination of measuring tape and calipers unless you have calipers that large. the more accurate that last 
+                width is,the better, but if you can't get the accurate measurement, get close and use a number 1 or 2 mmm less.
+            </p>
+            <p>
+                    The above will ensure all fret slots are cut shy of the edge, so you can have a clean fret board. However, some people probably like going all the way through, so 
+                    in that case, for your measurements add a few mm to the width at each location and the fret slot code will cut wider, and therefore go all the way throught he width
+                    of the fretboard. So using the above, decide according to your prefernce. By default, it will "approximately" cut the slot 1mm short of the edge on each side.
+            </p>
+            <p>
+                    This is an open source reposity on GitHub. I will be doing some work in the future to make it possible to add to this tool, such as if you have some ideas on how to
+                    do inlays with images. Since dots are easy, I may make an inlay tool for dots, or an option to add inlays with the same tool and dot sizing. For now, this will allow
+                    CNC user luthiers to avoid having to draw out frets or use a macro in Fusion360 or FreeCad (which do offer some very nice macros with a learnning curve and limited tutorials).
+            </p>
+            <p>
+                    Once you have your numbers in the form, click Generate G Code button and the code will populate in the window to the right. Click the Copy button, then paste (ctrl + V) it into a
+                    notepad document and save as -> filename.nc and use the "All" file types. If you keep the default .txt the file name will append to filename.nc.txt. If that happens
+                    simply rename the file and remove the .txt and it will work just fine.
+            </p>
+        </div>
         <form>
-            <div class="radio-group full-width">
-                <label>Unit</label>
-                <div class="radio-options">
-                    <div>
-                        <input type="radio" id="mm" name="unit" value="mm" checked>
-                        <label for="mm">Millimeters</label>
+            <div class="form">
+                <div class="radio-group full-width">
+                    <label>Unit</label>
+                    <div class="radio-options">
+                        <div>
+                            <input type="radio" id="mm" name="unit" value="mm" checked>
+                            <label for="mm">Millimeters</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="in" name="unit" value="inch">
+                            <label for="in">Inches</label>
+                        </div>
                     </div>
-                    <div>
-                        <input type="radio" id="in" name="unit" value="inch">
-                        <label for="in">Inches</label>
+                </div>
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="scale">Scale Length</label>
+                        <input type="text" id="scale" name="scale">
+                    </div>
+                    <div class="form-group">
+                        <label for="numFrets">Number of Frets</label>
+                        <input type="text" id="numFrets" name="num_frets">
+                    </div>
+                    <div class="form-group">
+                        <label for="slotDepth">Depth of Slot</label>
+                        <input type="text" id="slotDepth" name="slot_depth">
+                    </div>
+                    <div class="form-group">
+                        <label for="stepDown">Maximum Stepdown</label>
+                        <input type="text" id="stepDown" name="step_down">
                     </div>
                 </div>
-            </div>
-            <div class="form-column">
-                <div class="form-group">
-                    <label for="scale">Scale Length</label>
-                    <input type="text" id="scale" name="scale">
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="cutSpeed">Cutting Speed</label>
+                        <input type="text" id="cutSpeed" name="cut_speed">
+                    </div>
+                    <div class="form-group">
+                        <label for="bitDiameter">Bit Diameter</label>
+                        <input type="text" id="bitDiameter" name="bit_diameter">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastFretWidth">Fretboard width at last fret</label>
+                        <input type="text" id="lastFretWidth" name="last_fret_width">
+                    </div>
+                    <div class="form-group">
+                        <label for="nutWidth">Fretboard width at nut</label>
+                        <input type="text" id="nutWidth" name="nut_width">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="numFrets">Number of Frets</label>
-                    <input type="text" id="numFrets" name="num_frets">
+                <div class="button-container">
+                    <button type="button" onclick="fretsTest()">Generate G Code</button>
                 </div>
-                <div class="form-group">
-                    <label for="slotDepth">Depth of Slot</label>
-                    <input type="text" id="slotDepth" name="slot_depth">
-                </div>
-                <div class="form-group">
-                    <label for="stepDown">Maximum Stepdown</label>
-                    <input type="text" id="stepDown" name="step_down">
-                </div>
-            </div>
-            <div class="form-column">
-                <div class="form-group">
-                    <label for="cutSpeed">Cutting Speed</label>
-                    <input type="text" id="cutSpeed" name="cut_speed">
-                </div>
-                <div class="form-group">
-                    <label for="bitDiameter">Bit Diameter</label>
-                    <input type="text" id="bitDiameter" name="bit_diameter">
-                </div>
-                <div class="form-group">
-                    <label for="lastFretWidth">Fretboard width at last fret</label>
-                    <input type="text" id="lastFretWidth" name="last_fret_width">
-                </div>
-                <div class="form-group">
-                    <label for="nutWidth">Fretboard width at nut</label>
-                    <input type="text" id="nutWidth" name="nut_width">
-                </div>
-            </div>
-            <div class="form-group full-width">
-                 <button type="button" onclick="fretsTest()">Generate G Code</button>
             </div>
         </form>
         <div class="g-code-body">
@@ -70,11 +105,21 @@
                 <!-- G Code will be displayed here -->
                 This is where the generated G-Code will appear.
                 It will scroll if the content is too long.
+                
             </div>
-            <button onclick="copyDivToClipboard()">Copy</button>
+            <div class="g-code-button">
+                <button onclick="copyDivToClipboard()">Copy</button>
+            </div>
         </div>
       
     </div>
-
+    <div class="support">
+        <p>If you find this tool useful, consider supporting me by <a href="buymeacoffee.com/shaynerushton">buying me a coffee</a>.</p>
+        <p><strong>As of right now, this is grbl processing. If you need a different processor, let me know and I will attempt to find the right gCode for you.</strong>
+            All inquiries and feedback can be provided by email at <a href="mailto: fretslotsupport@gmail.com">fretslotsupport@gmail.com</a>.
+        </p>
+    
+    
+    </div>
 </body>
 </html>
