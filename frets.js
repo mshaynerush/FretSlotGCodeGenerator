@@ -49,7 +49,7 @@ function fretsTest() {
         fretboardWidths.push(currentFretWidth)
     })
  
-        fretBoardWidths.map(FB => (
+        fretboardWidths.map(FB => (
             console.log(FB)
             ))
         createGCode(yDistances, fretboardWidths)
