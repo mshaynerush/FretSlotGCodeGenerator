@@ -30,7 +30,9 @@ function fretsTest() {
     fretboardWidths = []
     
     yDistances = setFretDistances(firstFret, numFrets, divConstant)
-    console.log("yDistances Array: " + yDistances)
+    yDistances.map(dist => (
+        console.log(dist)
+        )
     // get widths of the fretboard at each ydistance
 
     yDistances.map(fret => {
