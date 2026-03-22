@@ -13,8 +13,8 @@ function fretsTest() {
     numFrets = document.getElementById("numFrets").value
     bitDiameter = document.getElementById("bitDiameter").value
     firstFret = scale / divConstant
-    base1 = document.getElementById("nutWidth").value
-    base2 = document.getElementById("lastFretWidth").value
+    base1 = document.getElementById("lastFretWidth").value
+    base2 = document.getElementById("nutWidth").value
     
     let currentFretWidth = 0
 
