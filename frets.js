@@ -32,7 +32,7 @@ function fretsTest() {
     yDistances = setFretDistances(firstFret, numFrets, divConstant)
     yDistances.map(dist => (
         console.log(dist)
-        )
+        ))
     // get widths of the fretboard at each ydistance
 
     yDistances.map(fret => {
@@ -51,7 +51,7 @@ function fretsTest() {
  
         fretBoardWidths.map(FB => (
             console.log(FB)
-            )
+            ))
         createGCode(yDistances, fretboardWidths)
 }
 
