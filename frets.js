@@ -16,7 +16,7 @@ function fretsTest() {
     firstFret = scale / divConstant
     base1 = document.getElementById("lastFretWidth").value
     base2 = document.getElementById("nutWidth").value
-    let currentFretWidth = 0
+
 
 
     // Set Arrays to hold widths and distances from nut for frets
@@ -46,12 +46,13 @@ function fretsTest() {
         currentFretWidth += ((fret/totalLength) * base1) 
         currentFretWidth += ((totalLength - (fret/totalLength)) * base2) 
         currentFretWidth -= fretWidthReduction
+        console.log("currentFretWidth: " + currentFretWidth)
         if(gUnitValue === "G20"){
             currentFretWidth = parseFloat(currentFretWidth / 25.400)
             console.log("currentFretWidth: " + currentFretWidth)
         }
         
-        console.log("currentFretWidth: " + currentFretWidth)
+
         
         fretboardWidths.push(currentFretWidth)
     })
