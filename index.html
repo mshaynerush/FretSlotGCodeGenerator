@@ -21,33 +21,33 @@
             </div>
        </nav>
        <div id="instructions" class="closed">
-            <p>To use this Gcode generator, you need to have some information. Using math, it is possible to determin the width along any point on a trapezoid if you know the widths of the base and the
-                base and the top of the shape. In the case of your fretboard, which tapers and is trapezoidal, you can measure the width where the nut meets the fingerboard and the width
+          <p>To use this Gcode generator, you need to have some information. Using math, it is possible to determine the width along any point on a trapezoid if you know the widths of both bases. 
+                In the case of your fretboard, which likely tapers and is trapezoidal, you can measure the width where the nut meets the fingerboard and the width
                 of the last fret. You can determine the width by either measuring from nut to your last fret, but for accuracy, you can find many fretboard calculators that will tell you the distance
                 from the nut to the last fret. Google "stewmac fret calculator" and it will take you to a page where you can enter the scale length and how many frets and you can see the last fret
                 distance. Use that number to measure the location of your last fret. I recommend a combination of measuring tape and calipers unless you have calipers that large. the more accurate that last 
-                width is,the better, but if you can't get the accurate measurement, get close and use a number 1 or 2 mmm less.
+                width is,the better, but if you can't get the accurate measurement, get close and use a number 1 or 2 mm less than the actual measurement to ensure the fret widths
+                remain within the fretboard.
             </p>
             <p>
-                    The above will ensure all fret slots are cut shy of the edge, so you can have a clean fret board. However, some people probably like going all the way through, so 
-                    in that case, for your measurements add a few mm to the width at each location and the fret slot code will cut wider, and therefore go all the way throught he width
+                    The above will ensure all fret slots are cut shy of the edge, so you can have a clean fretboard edge. However, some people probably like going all the way through, so 
+                    in that case, for your measurements add a few mm to the width at each location and the fret slot code will cut wider, and therefore go all the way through the width
                     of the fretboard. So using the above, decide according to your prefernce. By default, it will "approximately" cut the slot 1mm short of the edge on each side.
             </p>
             <p>
-                    This is an open source reposity on GitHub. I will be doing some work in the future to make it possible to add to this tool, such as if you have some ideas on how to
+                    This is an open source repository on GitHub. I will be doing some work in the future to make it possible to add to this tool, such as if you have some ideas on how to
                     do inlays with images. Since dots are easy, I may make an inlay tool for dots, or an option to add inlays with the same tool and dot sizing. For now, this will allow
                     CNC user luthiers to avoid having to draw out frets or use a macro in Fusion360 or FreeCad (which do offer some very nice macros with a learnning curve and limited tutorials).
             </p>
             <p>
                     Once you have your numbers in the form, click Generate G Code button and the code will populate in the window to the right. Click the Copy button, then paste (ctrl + V) it into a
-                    notepad document and save as -> filename.nc and use the "All" file types. If you keep the default .txt the file name will append to filename.nc.txt. If that happens
-                    simply rename the file and remove the .txt and it will work just fine.
+                    notepad document and save as -> filename.nc. Change filename to whatever name makes sense to you, like fretSlot_25Scale_22Fret.nc or whatever you like, and use the "All" file types. If you keep the default .txt the file name will append to filename.nc.txt. If that happens
+                    simply rename the file and remove the .txt and it will work just fine. I like to use very descriptive names for my path files so that I know exactly what the code is for at a glance.
+                    You are not required to use my methodology, belive it or not! :) Let me know if there is something you would change to be more useful to you. 
             </p>
-           <p>
-                   I use this <a href="https://ncviewer.com/" target="new"> Online CAM Simulator</a> to copy and paste my code into to verify my CNC paths are what I should expect to see.
-                    I find it useful to just show that I have the right number of frets, the right depth and that the CNC will move according to what I want to see.
-                    At this time it is free to use. I get nothing from it other than my own personal verification.
-           </p>
+            <p>
+                I will make a video demo one day when I am able to sit down and focus on it.
+            </p>
         </div>
         <form>
             <div class="form">
