@@ -16,17 +16,14 @@ function fretsTest() {
     base1 = document.getElementById("lastFretWidth").value
     base2 = document.getElementById("nutWidth").value    
     let currentFretWidth = 0
-
+    let toolBitCompensation = 0
     // Set the tool compensation value
-
-    const toolBitCompensation = ()=> {
-        if(gUnitValue === "G20") {
-            return (2 / 25.4 + bitDiameter)
-            
-        } else {
-            return 2 + bitDiameter
-        }
+    if(gUnitValue === "G20"){
+        toolBitCompensation = Number( 2 / 25.4 + Number(bitDiameter))
+    } else {
+        toolCompensation = 2 + bitDiameter
     }
+
 
     console.log(toolBitCompensation)
     // Set Arrays to hold widths and distances from nut for frets
