@@ -38,10 +38,14 @@ function fretsTest() {
         } else {
             fretWidthReduction =  2 + (bitDiameter)
         }
- 
-        currentFretWidth = ((fret/totalLength) * base1) 
-        currentFretWidth += ((totalLength - (fret/totalLength)) * base2) 
-        currentFretWidth -= fretWidthReduction
+
+        byBase1 = fret/totalLength
+        byBase2 = totalLength - byBase1
+
+        currentFretWidth = (byBase1 * base1) + (byBase2 * base2) * fretWidthReduction
+        // currentFretWidth = ((fret/totalLength) * base1) 
+        // currentFretWidth += ((totalLength - (fret/totalLength)) * base2) 
+        // currentFretWidth -= fretWidthReduction
     
         console.log("currentFretWidth: " + currentFretWidth)
         fretboardWidths.push(currentFretWidth)
