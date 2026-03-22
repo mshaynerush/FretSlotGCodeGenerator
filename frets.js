@@ -44,6 +44,7 @@ function fretsTest() {
                 return 2 / 25.4 + bitDiameter
             } else if(gUnitValue === "G21") {
                 return bitDiameter + 2
+            }
         }
 
         byBase1 = Number(fret/totalLength*base1)
@@ -59,7 +60,7 @@ function fretsTest() {
         fretboardWidths.push(Number(currentFretWidth))
         currentFretWidth = 0
         console.log(currentFretWidth)
-    }
+    })
  
         createGCode(yDistances, fretboardWidths)
 })
