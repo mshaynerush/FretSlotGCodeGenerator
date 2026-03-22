@@ -16,28 +16,19 @@ function fretsTest() {
     base1 = document.getElementById("lastFretWidth").value
     base2 = document.getElementById("nutWidth").value
 
-    console.log("scaleL: " + scale)
-    console.log("divConstant: " +divConstant)
-    console.log("gUnitValue: " + gUnitValue)
-    console.log("numFrets: " + numFrets)
-    console.log("bitdiameter: " + bitDiameter)
-    console.log("firstFret: " + firstFret)
-    console.log("base1: " + base1)
-    console.log("base2: " + base2)
+
 
     // Set Arrays to hold widths and distances from nut for frets
     yDistances = []
     fretboardWidths = []
     
     yDistances = setFretDistances(firstFret, numFrets, divConstant)
-    yDistances.map(dist => {
-        console.log(dist)
-    })
+
     // get widths of the fretboard at each ydistance
 
     yDistances.map(fret => {
         totalLength = yDistances[numFrets - 1]
-        console.log(totalLength)
+        console.log("Total Length: " + totalLength)
         // to simplify the linear equation each part of the equation is figured separately then added together
 
         if(gUnitValue === "G20"){
