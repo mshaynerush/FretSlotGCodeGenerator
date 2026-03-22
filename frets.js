@@ -10,6 +10,7 @@ function fretsTest() {
     scale = document.getElementById("scale").value
     divConstant = 17.817
     gUnitValue = document.querySelector('input[name="unit"]:checked').value;
+    console.log("Unit: " + gUnitValue)
     numFrets = document.getElementById("numFrets").value
     bitDiameter = document.getElementById("bitDiameter").value
     firstFret = scale / divConstant
