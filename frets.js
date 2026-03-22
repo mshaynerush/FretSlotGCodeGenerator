@@ -46,15 +46,7 @@ function fretsTest() {
         currentFretWidth += Number(byBase1)
         currentFretWidth += Number(byBase2)
         currentFretWidth -= Number(fretWidthReduction)
-
-     
-        
-        if(gUnitValue === "G20"){
-            currentFretWidth /= Number(25.400)
-        }
-        
-
-        
+       
         fretboardWidths.push(currentFretWidth)
         currentFretWidth = 0
     })
