@@ -24,8 +24,6 @@ function fretsTest() {
         toolBitCompensation = Number(2 + Number(bitDiameter))
     }
 
-
-    console.log(toolBitCompensation)
     // Set Arrays to hold widths and distances from nut for frets
     yDistances = []
     fretboardWidths = []
@@ -39,22 +37,19 @@ function fretsTest() {
         
         // to simplify the linear equation each part of the equation is figured separately then added together
 
-
-
-
         byBase1 = Number(fret/totalLength*base1)
         byBase2 = Number(((totalLength - fret) / totalLength) * base2)
 
         currentFretWidth += Number(byBase1)
-        console.log(currentFretWidth)
+
         currentFretWidth += Number(byBase2)
-        console.log(currentFretWidth)
+
         currentFretWidth -= Number(toolBitCompensation)
-        console.log("subtracting" + currentFretWidth)
+
        
         fretboardWidths.push(Number(currentFretWidth))
         currentFretWidth = 0
-        console.log(currentFretWidth)
+    
     })
  
         createGCode(yDistances, fretboardWidths)
