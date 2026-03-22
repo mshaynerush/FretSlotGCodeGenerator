@@ -60,7 +60,7 @@ function fretsTest() {
         fretboardWidths.push(Number(currentFretWidth))
         currentFretWidth = 0
         console.log(currentFretWidth)
-    })
+    }
  
         createGCode(yDistances, fretboardWidths)
 })
