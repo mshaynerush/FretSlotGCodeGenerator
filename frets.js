@@ -46,8 +46,12 @@ function fretsTest() {
         currentFretWidth += ((fret/totalLength) * base1) 
         currentFretWidth += ((totalLength - (fret/totalLength)) * base2) 
         currentFretWidth -= fretWidthReduction
-    
+        if(gUnitValue === "G20"){
+            currentWidth = currentWidth / 25.4
+        }
+        
         console.log("currentFretWidth: " + currentFretWidth)
+        
         fretboardWidths.push(currentFretWidth)
     })
  
