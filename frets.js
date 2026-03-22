@@ -39,15 +39,18 @@ function fretsTest() {
 
         console.log("fretWidthReduction: " + fretWidthReduction)
         console.log("fret: " + fret)
-        currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - (fret/totalLength)) * base2) - fretWidthReduction
+        currentFretWidth = ((fret/totalLength) * base1) 
+        console.log("currentFretWidth: " + currentFretWidth)
+        currentFretWidth += ((totalLength - (fret/totalLength)) * base2) 
+        console.log("currentFretWidth: " + currentFretWidth)
+        currentFretWidth -= fretWidthReduction
+        console.log("currentFretWidth: " + currentFretWidth)
         console.log("fret Distance: " + fret)
         console.log("currentFretWidth: " + currentFretWidth)
         fretboardWidths.push(currentFretWidth)
     })
  
         fretboardWidths.map(FB => (
-            console.log("FB Width: " + FB)
-            ))
         createGCode(yDistances, fretboardWidths)
 }
 
