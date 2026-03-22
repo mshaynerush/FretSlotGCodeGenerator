@@ -34,17 +34,15 @@ function fretsTest() {
 
         if(gUnitValue === "G20"){
             fretWidthReduction = inchConversion(bitDiameter)
-            console.log("Actual unit value: " + gUnitValue)
+            
         } else {
             fretWidthReduction =  2 + (bitDiameter)
         }
-
-        console.log("fretWidthReduction: " + fretWidthReduction)
-        console.log("fret: " + fret)
+ 
         currentFretWidth = ((fret/totalLength) * base1) 
         currentFretWidth += ((totalLength - (fret/totalLength)) * base2) 
         currentFretWidth -= fretWidthReduction
-        console.log("fret Distance: " + fret)
+    
         console.log("currentFretWidth: " + currentFretWidth)
         fretboardWidths.push(currentFretWidth)
     })
