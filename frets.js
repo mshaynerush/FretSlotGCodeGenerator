@@ -39,6 +39,13 @@ function fretsTest() {
             fretWidthReduction =  2 + (bitDiameter)
         }
 
+        const toolBitCompensation (gUnitValue)=> {
+            if (gUnitValue === "G20") {
+                return 2 / 25.4 + bitDiameter
+            } else if(gUnitValue === "G21") {
+                return bitDiameter + 2
+        }
+
         byBase1 = Number(fret/totalLength*base1)
         byBase2 = Number(((totalLength - fret) / totalLength) * base2)
 
@@ -46,7 +53,7 @@ function fretsTest() {
         console.log(currentFretWidth)
         currentFretWidth += Number(byBase2)
         console.log(currentFretWidth)
-        currentFretWidth -= Number(fretWidthReduction)
+        currentFretWidth -= toolBitCompensation(gUnitValue)
         console.log(currentFretWidth)
        
         fretboardWidths.push(Number(currentFretWidth))
