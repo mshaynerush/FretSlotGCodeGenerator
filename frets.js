@@ -41,13 +41,13 @@ function fretsTest() {
 
         byBase1 = fret/totalLength
         byBase2 = totalLength - byBase1
-        console.log("Bases: " + byBase1 * ByBase2)
+        console.log("Bases: " + byBase1 * byBase2)
 
         currentFretWidth += ((fret/totalLength) * base1) 
         currentFretWidth += ((totalLength - (fret/totalLength)) * base2) 
         currentFretWidth -= fretWidthReduction
         if(gUnitValue === "G20"){
-            currentFretWidth = currentFretWidth / 25.400
+            currentFretWidth = parseFloat(currentFretWidth / 25.400)
             console.log("currentFretWidth: " + currentFretWidth)
         }
         
