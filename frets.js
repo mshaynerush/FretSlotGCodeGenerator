@@ -28,7 +28,7 @@ function fretsTest() {
         }
     }
 
-
+    console.log(toolBitCompensation)
     // Set Arrays to hold widths and distances from nut for frets
     yDistances = []
     fretboardWidths = []
