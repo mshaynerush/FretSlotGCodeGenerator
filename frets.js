@@ -90,15 +90,15 @@ function createGCode(yDistances, fretboardWidths){
         zDepth = stepDown
         x1 = -(fretboardWidths[index] / 2)
         x2 = fretboardWidths[index] / 2
-        gCodeWindow.innerHTML += "G0 X" + x1 + " Y" + Number(fret).toFixed(3) +  " F5000 <br>"
+        gCodeWindow.innerHTML += "G0 X" + Number(x1).toFixed(3) + " Y" + Number(fret).toFixed(3) +  " F5000 <br>"
         while (zDepth > zEnd){
-            gCodeWindow.innerHTML += "G1 X" + x2 + " Y" + Number(fret).toFixed(3) + " Z" + zDepth.toFixed(3) + " F" + cutSpeed + "<br>"
+            gCodeWindow.innerHTML += "G1 X" + Number(x2).toFixed(3) + " Y" + Number(fret).toFixed(3) + " Z" + zDepth.toFixed(3) + " F" + cutSpeed + "<br>"
             if(zDepth + stepDown < zEnd){
                 zDepth = zEnd
             } else {
                 zDepth += stepDown
             }
-            gCodeWindow.innerHTML += "G1 X" + x1 + " Y" + Number(fret).toFixed(3) + " Z" + zDepth.toFixed(3) + " <br>"
+            gCodeWindow.innerHTML += "G1 X" + Number(x1).toFixed(3) + " Y" + Number(fret).toFixed(3) + " Z" + zDepth.toFixed(3) + " <br>"
             if(zDepth + stepDown < zEnd){
                 zDepth = zEnd
             } else {
