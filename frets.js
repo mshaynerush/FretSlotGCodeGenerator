@@ -28,7 +28,7 @@ function fretsTest() {
 
     yDistances.map(fret => {
         totalLength = yDistances[numFrets - 1]
-        console.log("Total Length: " + totalLength)
+        
         // to simplify the linear equation each part of the equation is figured separately then added together
 
         if(gUnitValue === "G20"){
@@ -37,7 +37,8 @@ function fretsTest() {
             fretWidthReduction =  2 + (bitDiameter)
         }
         currentFretWidth = ((fret/totalLength) * base1) + ((totalLength - (fret/totalLength)) * base2) - fretWidthReduction
-        
+        console.log("fret Distance: " + fret)
+        console.lg("currentFretWidth: " + currentFretWidth)
         fretboardWidths.push(currentFretWidth)
     })
  
