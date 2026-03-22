@@ -14,9 +14,19 @@ function fretsTest() {
     bitDiameter = document.getElementById("bitDiameter").value
     firstFret = scale / divConstant
     base1 = document.getElementById("lastFretWidth").value
-    base2 = document.getElementById("nutWidth").value
-    
+    base2 = document.getElementById("nutWidth").value    
     let currentFretWidth = 0
+    let toolBitCompensation = 0
+    // Set the tool compensation value
+
+    const toolBitCompensation = ()=> {
+        if(gUnitValue === "G20") {
+            inToMM = 2 / 25. 4
+            return inToMM + bitDiameter
+        } else {
+            return 2 + bitDiameter
+        }
+    }
 
 
     // Set Arrays to hold widths and distances from nut for frets
@@ -33,13 +43,7 @@ function fretsTest() {
         // to simplify the linear equation each part of the equation is figured separately then added together
 
 
-        const toolBitCompensation = ()=> {
-            if (gUnitValue === "G20") {
-                return 2 / 25.4 + bitDiameter
-            } else if(gUnitValue === "G21") {
-                return bitDiameter + 2
-            }
-        }
+
 
         byBase1 = Number(fret/totalLength*base1)
         byBase2 = Number(((totalLength - fret) / totalLength) * base2)
@@ -48,7 +52,7 @@ function fretsTest() {
         console.log(currentFretWidth)
         currentFretWidth += Number(byBase2)
         console.log(currentFretWidth)
-        currentFretWidth -= toolBitCompensation()
+        currentFretWidth -= toolBitCompensation
         console.log(currentFretWidth)
        
         fretboardWidths.push(Number(currentFretWidth))
