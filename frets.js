@@ -43,11 +43,15 @@ function fretsTest() {
         byBase2 = Number(((totalLength - fret) / totalLength) * base2)
 
         currentFretWidth += Number(byBase1)
+        console.log(currentFretWidth)
         currentFretWidth += Number(byBase2)
+        console.log(currentFretWidth)
         currentFretWidth -= Number(fretWidthReduction)
+        console.log(currentFretWidth)
        
         fretboardWidths.push(Number(currentFretWidth))
         currentFretWidth = 0
+        console.log(currentFretWidth)
     })
  
         createGCode(yDistances, fretboardWidths)
