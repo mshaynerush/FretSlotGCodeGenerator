@@ -15,7 +15,7 @@ function fretsTest() {
     firstFret = scale / divConstant
     base1 = document.getElementById("lastFretWidth").value
     base2 = document.getElementById("nutWidth").value
-
+    let currentFretWidth = 0
 
 
     // Set Arrays to hold widths and distances from nut for frets
