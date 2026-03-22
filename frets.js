@@ -43,7 +43,7 @@ function fretsTest() {
         byBase2 = totalLength - byBase1
         console.log("Bases: " + byBase1 * byBase2)
 
-        currentFretWidth += ((fret/totalLength) * base1) 
+        currentFretWidth = ((fret/totalLength) * base1) 
         currentFretWidth += ((totalLength - (fret/totalLength)) * base2) 
         currentFretWidth -= fretWidthReduction
         console.log("currentFretWidth: " + currentFretWidth)
