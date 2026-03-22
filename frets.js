@@ -39,12 +39,12 @@ function fretsTest() {
             fretWidthReduction =  2 + (bitDiameter)
         }
 
-        byBase1 = fret/totalLength
-        byBase2 = (totalLength - fret) / totalLength
+        byBase1 = Number(fret/totalLength*base1)
+        byBase2 = Number((totalLength - fret) / totalLength) * base2)
         console.log("Bases: " + byBase1 * byBase2)
 
-        currentFretWidth += Number(byBase1 * base1)
-        currentFretWidth += Number(byBase2 * base2)
+        currentFretWidth += Number(byBase1)
+        currentFretWidth += Number(byBase2)
         currentFretWidth -= Number(fretWidthReduction)
 
         console.log(currentFretWidth)
@@ -81,7 +81,7 @@ function createGCode(yDistances, fretboardWidths){
 
     // safe travel height
     if(gUnitValue === "G20"){
-        safeTravel = .025
+        safeTravel = .125
     } else {
         safeTravel = 3.0
     }
