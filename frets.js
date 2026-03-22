@@ -42,7 +42,8 @@ function fretsTest() {
         console.log("fretWidthReduction: " + fretWidthReduction)
         console.log("fret: " + fret)
         currentFretWidth = ((fret/totalLength) * base1) 
-            // + ((totalLength - (fret/totalLength)) * base2) - fretWidthReduction
+        currentFretWidth += ((totalLength - (fret/totalLength)) * base2) 
+        currentFretWidth -= fretWidthReduction
         console.log("fret Distance: " + fret)
         console.log("currentFretWidth: " + currentFretWidth)
         fretboardWidths.push(currentFretWidth)
