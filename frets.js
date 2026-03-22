@@ -32,14 +32,8 @@ function fretsTest() {
         
         // to simplify the linear equation each part of the equation is figured separately then added together
 
-        if(gUnitValue === "G20"){
-            fretWidthReduction = Number( 2 / 25.4 + bitDiameter)
-            
-        } else {
-            fretWidthReduction =  2 + (bitDiameter)
-        }
 
-        const toolBitCompensation = (gUnitValue)=> {
+        const toolBitCompensation = ()=> {
             if (gUnitValue === "G20") {
                 return 2 / 25.4 + bitDiameter
             } else if(gUnitValue === "G21") {
@@ -54,7 +48,7 @@ function fretsTest() {
         console.log(currentFretWidth)
         currentFretWidth += Number(byBase2)
         console.log(currentFretWidth)
-        currentFretWidth -= toolBitCompensation(gUnitValue)
+        currentFretWidth -= toolBitCompensation()
         console.log(currentFretWidth)
        
         fretboardWidths.push(Number(currentFretWidth))
