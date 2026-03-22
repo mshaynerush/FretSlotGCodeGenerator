@@ -33,7 +33,7 @@ function fretsTest() {
         // to simplify the linear equation each part of the equation is figured separately then added together
 
         if(gUnitValue === "G20"){
-            fretWidthReduction = inchConversion(bitDiameter)
+            fretWidthReduction = Number( 2 / 25.4 + bitDiameter)
             
         } else {
             fretWidthReduction =  2 + (bitDiameter)
