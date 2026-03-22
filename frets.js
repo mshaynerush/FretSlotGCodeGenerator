@@ -50,7 +50,7 @@ function fretsTest() {
      
         
         if(gUnitValue === "G20"){
-            currentFretWidth = Number(currentFretWidth / 25.400)
+            currentFretWidth /= Number(25.400)
         }
         
 
