@@ -121,18 +121,18 @@ function createGCode(yDistances, fretboardWidths){
 
     }
 
-    function alshowHide(){
-       
-       
-        const instructionsDiv = document.querySelector("#instructions")
+function showHide(){
+   
+   
+    const instructionsDiv = document.querySelector("#instructions")
 
-            if(instructionsDiv.className === "closed"){
-                instructionsDiv.className = "open"
-            } else {
-                instructionsDiv.className = "closed"
-            }
+        if(instructionsDiv.className === "closed"){
+            instructionsDiv.className = "open"
+        } else {
+            instructionsDiv.className = "closed"
+        }
 
-    }
+}
 
 
 function setFretDistances(firstFret, numFrets, divConstant){
