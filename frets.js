@@ -37,6 +37,7 @@ function fretsTest() {
 
     yDistances.map(fret => {
         totalLength = yDistances[numFrets - 1]
+        console.log(totalLength)
         // to simplify the linear equation each part of the equation is figured separately then added together
 
         if(gUnitValue === "G20"){
