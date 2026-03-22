@@ -138,6 +138,13 @@ body {
             margin: 1em 0;
         }
 
+        label
+        {
+            font-size: .9em;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: hsl(144, 97%, 15%);
+        }
+
         nav
         {
             width: calc(100vw - 2em);
