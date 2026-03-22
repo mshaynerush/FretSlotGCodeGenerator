@@ -10,7 +10,6 @@ function fretsTest() {
     scale = document.getElementById("scale").value
     divConstant = 17.817
     gUnitValue = document.querySelector('input[name="unit"]:checked').value;
-    console.log("Unit: " + gUnitValue)
     numFrets = document.getElementById("numFrets").value
     bitDiameter = document.getElementById("bitDiameter").value
     firstFret = scale / divConstant
@@ -43,8 +42,8 @@ function fretsTest() {
         byBase2 = totalLength - byBase1
         console.log("Bases: " + byBase1 * byBase2)
 
-        currentFretWidth += Number(((fret/totalLength) * base1))
-        currentFretWidth += Number(((totalLength - (fret/totalLength)) * base2))
+        currentFretWidth += Number(byBase1 * base1)
+        currentFretWidth += Number(byBase2 * base2))
         currentFretWidth -= Number(fretWidthReduction)
 
         console.log(currentFretWidth)
