@@ -46,6 +46,7 @@ function fretsTest() {
         currentFretWidth += Number(((fret/totalLength) * base1))
         currentFretWidth += Number(((totalLength - (fret/totalLength)) * base2))
         currentFretWidth -= Number(fretWidthReduction)
+        currentFretWidth = currentFretWidth * 25.4
         console.log("currentFretWidth: " + currentFretWidth)
         if(gUnitValue === "G20"){
             currentFretWidth = parseFloat(currentFretWidth / 25.400)
