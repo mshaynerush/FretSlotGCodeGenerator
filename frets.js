@@ -16,7 +16,7 @@ function fretsTest() {
     base1 = document.getElementById("lastFretWidth").value
     base2 = document.getElementById("nutWidth").value    
     let currentFretWidth = 0
-    let toolBitCompensation = 0
+
     // Set the tool compensation value
 
     const toolBitCompensation = ()=> {
