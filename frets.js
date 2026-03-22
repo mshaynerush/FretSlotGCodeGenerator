@@ -53,7 +53,7 @@ function fretsTest() {
         currentFretWidth += Number(byBase2)
         console.log(currentFretWidth)
         currentFretWidth -= Number(toolBitCompensation)
-        console.log(currentFretWidth)
+        console.log("subtracting" + currentFretWidth)
        
         fretboardWidths.push(Number(currentFretWidth))
         currentFretWidth = 0
