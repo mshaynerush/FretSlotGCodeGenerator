@@ -39,7 +39,7 @@ function fretsTest() {
             fretWidthReduction =  2 + (bitDiameter)
         }
 
-        const toolBitCompensation (gUnitValue)=> {
+        const toolBitCompensation = (gUnitValue)=> {
             if (gUnitValue === "G20") {
                 return 2 / 25.4 + bitDiameter
             } else if(gUnitValue === "G21") {
