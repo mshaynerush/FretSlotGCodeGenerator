@@ -34,6 +34,7 @@ function fretsTest() {
 
         if(gUnitValue === "G20"){
             fretWidthReduction = inchConversion(bitDiameter)
+            console.log("Actual unit value: " + gUnitValue)
         } else {
             fretWidthReduction =  2 + (bitDiameter)
         }
